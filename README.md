@@ -60,3 +60,6 @@ The user can browse askCarl by simply scrolling up or down the page, or, when ap
 |    2/07/19     |   Anticipation                |   Give the illusion of predictable motion to element           |
 |    2/08/19     |   Staging                     |   Guide the users's eye and draw attention to element in focus |
 |    2/08/19     |   Pose to pose                |   Use pose-2-pose to give illusion of shape change to element  |
+|    2/09/19     |   Tags                        |   Add tags to all animations                                   |
+|    2/10/19     |   Search                      |   Make tags searchable                                         |
+|    2/11/19     |   Details                     |   Add links to GitHub, linkedIn, etc                           |
