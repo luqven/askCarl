@@ -1,0 +1,5 @@
+/* Sets site-wide default font */
+html * {
+  /* font-family: Arial, Helvetica , sans-serif; */
+  font-family: 'Ubuntu', sans-serif;
+}

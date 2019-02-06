@@ -1,0 +1,43 @@
+.welcome-banner-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background-color: rgb(235, 247, 247);
+}
+
+.welcome-b-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 80px;
+    text-align: center;
+}
+
+.welcome-b-text h2 {
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.welcome-b-text p {
+    font-weight: 500;
+    margin: 5px;
+}
+
+.welcome-paw {
+    font-size: xx-large;
+    text-align: center;
+    margin: auto;
+}
+
+.hover-card-container {
+    display: flex;
+    width: 285px;
+    height: 385px;
+    margin: auto;
+    background-color: white;
+    border: 1px solid white;
+    box-sizing: border-box;
+    box-shadow: 1px 4px 20px 0px lightgrey;
+}
