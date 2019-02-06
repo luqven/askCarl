@@ -1,0 +1,29 @@
+{
+  "name": "askCarl",
+  "version": "1.0.0",
+  "description": "Hi! This is the README for **askCarl**. askCarl is a Javascript app that displays complex Javascrpipt & CSS concepts as simple animations. The goal is to display how the two languages can be used to achieve some of the most tried and true animation techniques on one's webpage.",
+  "main": "javascript/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/.bin/webpack --mode=production",
+    "start": "./node_modules/.bin/webpack --mode=production",
+    "webpack": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luqven/askCarl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luqven/askCarl/issues"
+  },
+  "homepage": "https://github.com/luqven/askCarl#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "webpack": "^4.29.2"
+  }
+}
