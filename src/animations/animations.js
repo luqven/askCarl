@@ -1,5 +1,6 @@
 // animations JS file
 import Token from '../token';
+// import suqash from './squash';
 
 class Animations {
   constructor(props){
@@ -7,7 +8,7 @@ class Animations {
   }
 
   render(){
-    this.token.render()
+    setInterval(this.token.squash, 50);
   }
 }
 

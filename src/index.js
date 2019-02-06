@@ -15,10 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     zPos: 0,
     xPos: 125,
     yPos: 150,
-    ctx: document.getElementById('canvas')
+    canvas: document.getElementById('canvas')
   })
+
   let animations = new Animations({
-    token: token,
+    token: token
   })
 
   animations.render()
