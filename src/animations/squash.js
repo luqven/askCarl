@@ -19,20 +19,18 @@ class Squash {
     const dims = this.token.getDimensions()
     const width = dims[0]
     const height = dims[1]
-    const tokenArea = [
-      xPos + width / 2,
-      xPos - width / 2,
-      yPos + height / 2,
-      yPos - height / 2,
-      ]
-    if (tokenArea[0] < this.leftWAll) {
+    // const tokenArea = width * height;
+    console.log(`xPpos + w: ${xPos + width}, xPpos: ${xPos}, yPpos + h: ${yPos + height}, yPpos: ${yPos}`)
+    console.log(`leftW: ${this.leftWAll}, rightW: ${this.rightWall}, topW: ${this.topWall}, botW: ${this.botWall}`)
+
+    if (xPos < this.leftWAll) {
       diff[0] = +1; 
-    } else if (tokenArea[1] > this.rightWall) {
+    } else if (xPos + width >= this.rightWall) {
       diff[0] = -1;
     }
-    if (tokenArea[1] < this.botWall) {
+    if (yPos > this.botWall) {
       diff[1] = +1;
-    } else if (tokenArea[1] > this.topWall) {
+    } else if (yPos + height <= this.topWall) {
       diff[1] = -1;
     }
 
@@ -40,7 +38,7 @@ class Squash {
   }
 
   render(){
-    debugger;
+    // debugger;
   }
 }
 

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     color: "lightblue",
     dimensions: [50, 50],
     position: [canvas.width / 2 - 20, canvas.height / 2 ],
-    walls: [60, canvas.height - 60, 60, canvas.width - 60],
+    walls: [0, canvas.height - 50, 0, canvas.width],
     ctx: canvas.getContext('2d'),
   })
 
