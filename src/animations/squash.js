@@ -1,6 +1,8 @@
 // squash animation
-const squash = (pos, dim) => {
-  return null;
+class Squash {
+  constructor(props) {
+    this.token = props.token;
+  }
 }
 
-export default squash;
+export default Squash;

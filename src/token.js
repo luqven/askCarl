@@ -5,41 +5,69 @@
 class Token {
   constructor(props){
     this.shape = props.shape;
-    this.model = null;
     this.color = props.color;
-    this.height = props.height;
-    this.width = props.width;
-    this.zPos = props.zPos;
-    this.xPos = props.xPos;
-    this.yPos = props.yPos;
-    this.canvas = props.canvas
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = props.ctx
     this.dir = "down"
+    this.dimensions = props.dimensions; // [ w, h ],
+    this.position = props.position;     // [ startX, startY ],
+    this.walls = props.walls            // [ top, bottom, left, right ]
+  
 
-    this.squash = this.squash.bind(this);
+    this.logger = this.logger.bind(this);
+    this.getColor = this.getColor.bind(this);
+    this.getPosition = this.getPosition.bind(this);
+    this.setPosition = this.setPosition.bind(this);
+    this.getDimensions = this.getDimensions.bind(this);
+    this.setDimensions = this.setDimensions.bind(this);
+    this.getTokenAttributes = this.getTokenAttributes.bind(this);
   }
 
-  squash(dir = this.dir, amt = -50) {
-    // debugger
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    console.log(`dir:${dir} yPos: ${this.yPos}`)
-    if ( dir === "down") {
-      amt = +10;
-      if (this.yPos >= this.canvas.height- 60) { this.dir = "up"}}
+  logger() {
+    let currentTokenState = {
+      token: {
+        shape: this.shape,
+        color: this.color,
+        dims: this.dimensions,
+        pos: this.position,
+      }
+    }
+    console.log( currentTokenState )
+  }
 
-    if ( dir === "up" ) {
-      amt = -10;
-      if (this.yPos <= 15) { this.dir = "down" }
-    };
+  getPosition(){
+    this.xPos = this.position[0];
+    this.yPos = this.position[1];
+  }
 
-    this.yPos += amt;
-    this.render();
-    
+  setPosition(newX, newY) {
+    this.position[0] = newX;
+    this.position[1] = newY;
+  }
+
+  getDimensions(){
+    this.width = this.dimensions[0];
+    this.height = this.dimensions[1];
+  }
+
+  setDimensions(newW, newH) {
+    this.dimensions[0] = newW;
+    this.dimensions[1] = newH;
+  }
+
+  getColor() {
+    this.ctx.fillStyle = this.color;
+
+  }
+
+  getTokenAttributes() {
+    this.getColor();
+    this.getPosition();
+    this.getDimensions();
   }
 
   render() {
-    this.ctx.fillStyle = this.color;
-
+    this.getTokenAttributes();
+    this.logger();
     switch (this.shape) {
       case "square":
         this.ctx.fillRect(this.xPos, this.yPos, this.width, this.height)

@@ -7,15 +7,14 @@ console.log('webpack is running...')
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
+  const canvas = document.getElementById('canvas');
   const token = new Token({
     shape: "square",
     color: "lightblue",
-    height: 50,
-    width: 50,
-    zPos: 0,
-    xPos: 125,
-    yPos: 150,
-    canvas: document.getElementById('canvas')
+    dimensions: [50, 50],
+    position: [canvas.width / 2 - 20, canvas.height / 2 ],
+    walls: [60, canvas.height - 60, 60, canvas.width - 60],
+    ctx: canvas.getContext('2d'),
   })
 
   let animations = new Animations({

@@ -8,7 +8,8 @@ class Animations {
   }
 
   render(){
-    setInterval(this.token.squash, 50);
+    // setInterval(this.token.squash, 1000);
+    this.token.render();
   }
 }
 
