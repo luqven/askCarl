@@ -37,6 +37,8 @@ class Token {
   getPosition(){
     this.xPos = this.position[0];
     this.yPos = this.position[1];
+
+    return [this.xPos, this.yPos];
   }
 
   setPosition(newX, newY) {
@@ -44,9 +46,20 @@ class Token {
     this.position[1] = newY;
   }
 
+  changePosition(offsets) {
+    const xOffset = offsets[0];
+    const yOffset = offsets[1];
+
+    this.position[0] += xOffset;
+    this.position[1] += yOffset;
+  }
+
   getDimensions(){
     this.width = this.dimensions[0];
     this.height = this.dimensions[1];
+
+    return [this.width, this.height];
+
   }
 
   setDimensions(newW, newH) {
@@ -66,6 +79,7 @@ class Token {
   }
 
   render() {
+    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.getTokenAttributes();
     this.logger();
     switch (this.shape) {
