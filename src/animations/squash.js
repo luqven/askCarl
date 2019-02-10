@@ -2,7 +2,7 @@
 class Squash {
   constructor(props) {
     this.token     = props.token;
-    this.topWall   = props.token.walls[0];
+    this.topWall   = props.token.walls[0] / 3;
     this.botWall   = props.token.walls[1];
     this.leftWAll  = props.token.walls[2];
     this.rightWall = props.token.walls[3];
@@ -39,13 +39,7 @@ class Squash {
   }
 
   increaseAccel() {
-    this.acceleration = this.acceleration * 1.2;
-    const newY = this.pos[1] + this.acceleration
-    if ( newY > this.botWall) {
-      this.acceleration = newY - this.botWall;
-    } else if (newY < this.topWall) {
-      this.acceleration = this.topWall - newY;
-    }
+    this.deltaY += 1;
   }
 
   moveInDyDir() {
@@ -69,6 +63,8 @@ class Squash {
       // if hit reverse verticle delta polarity
       this.reverseDeltaY();
       console.log(`deltaY inverted`)
+    } else {
+      this.increaseAccel();
     }
   }
 
