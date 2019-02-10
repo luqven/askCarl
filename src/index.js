@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const token = new Token({
     shape: "square",
     color: "lightblue",
-    dimensions: [50, 50],
-    position: [canvas.width / 2 - 20, canvas.height / 2 ],
-    walls: [0 + 50, canvas.height - 60, 0 + 10, canvas.width],
+    dimensions: [50, 50], // [width, height]
+    position: [canvas.width / 2, canvas.height / 2 ], // [xStartPos, yStartPos]
+    walls: [0, canvas.height, 0, canvas.width],  // [topW, botW, leftW, rightW]
     ctx: canvas.getContext('2d'),
   })
 

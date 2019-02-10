@@ -2,20 +2,21 @@
 class Squash {
   constructor(props) {
     this.token     = props.token;
-    this.pos       = this.token.getPosition();
     this.topWall   = props.token.walls[0];
     this.botWall   = props.token.walls[1];
     this.leftWAll  = props.token.walls[2];
     this.rightWall = props.token.walls[3];
+    
+    this.pos          = this.token.getPosition();   // [xPos, yPos]
+    this.dimensions   = this.token.getDimensions(); // [w, h] 
+    this.speed        = 1;   // initial speed
+    this.acceleration = 20;  // initial accel
+    this.threshhold   = .05; //  stop animationwhen speed reaches this
+    this.hitCount     = 1;   // start with 0 bounces
 
-    this.speed = 1; // initial speed
-    this.acceleration = 20; // initial accel
-    this.threshhold = .05; //  stop animationwhen speed reaches this
-    this.hitCount = 1; // start with 0 bounces
-
-    this.bounce = this.bounce.bind(this)
+    this.bounce        = this.bounce.bind(this)
     this.increaseAccel = this.increaseAccel.bind(this);
-    this.hitWall = this.hitWall.bind(this)
+    this.hitWall       = this.hitWall.bind(this)
   }
 
   hitWall(){
@@ -61,6 +62,7 @@ class Squash {
   }
 
   render(){
+    console.log(this.token);
     // setInterval(this.bounce, 1000);
   }
 }
