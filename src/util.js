@@ -4,6 +4,9 @@ const Util = {
   },
   getRandom: function getRandom(min, max) {
     return Math.floor(Math.random() * (max  - min) + min);
+  },
+  getRandomFraction: function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
   }
 }
 

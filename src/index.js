@@ -1,7 +1,7 @@
 // index JS file
 import Util from "./util";
 import Token from './token';
-import Animations from './animations/animations';
+import Squash from "./animations/squash";
 console.log('webpack is running...')
 
 
@@ -16,23 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('clicked!')
     let dims = Util.getRandom(10, 50);
 
-    const token = new Token({
-      shape: shapes[Util.getRandom(0, 1)],
-      color: colors[Util.getRandom(0, 3)],
-      dimensions: [dims, dims], // [width, height]
-      position: [Util.getRandom(25, canvas.width / 3), Util.getRandom(25, canvas.height / 3)],  // [xStartPos - 1/2 * width, yStartPos - 1/2 * height]
-      walls: [0, canvas.height, 0, canvas.width],  // [topW, botW, leftW, rightW]
-      ctx: canvas.getContext('2d'),
-    })
-
-    let animation = new Animations({
-      token: token
+    let animation = new Squash({
+      token: new Token({
+        shape: shapes[Util.getRandom(0, 1)],
+        color: colors[Util.getRandom(0, 3)],
+        dimensions: [dims, dims], // [width, height]
+        position: [Util.getRandom(25, canvas.width / 2), Util.getRandom(25, canvas.height - 25)],  // [xStartPos - 1/2 * width, yStartPos - 1/2 * height]
+        walls: [0, canvas.height, 0, canvas.width],  // [topW, botW, leftW, rightW]
+        ctx: canvas.getContext('2d'),
+      })
     })
     animations.push(animation);
-
-    animations.forEach(animation => {
-      console.log(animation)
-      animation.render();
-    });
-  })
+    render();
+  });
+  function render() {
+    setInterval(() => {
+    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    animations.forEach((animation) => {
+      animation.render()
+    })}, 20);
+  };
+  render();
 });

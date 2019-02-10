@@ -1,3 +1,6 @@
+import Util from "../util";
+
+
 // squash animation
 class Squash {
   constructor(props) {
@@ -14,10 +17,10 @@ class Squash {
     this.width        = this.dimensions[0]; // this width gets changed
     this.initialW     = this.dimensions[0]; // store for later refrence
 
-    this.deltaY       = 2;   // initial vertical change
+    this.deltaY       = Util.getRandom(1, 2);   // initial vertical change
     this.deltaX       = 0;   // initial vertical change
-    this.acceleration = 20;  // initial accel
-    this.friction     = 0.9; // initial friction fraction
+    this.acceleration = Util.getRandom(10, 20);  // initial accel
+    this.friction     = Util.getRandomFraction(0.9, 0.9); // initial friction fraction
     this.hitCount     = 1;   // start with 0 bounces
     
     this.bounce        = this.bounce.bind(this);
@@ -95,7 +98,6 @@ class Squash {
   }
   
   bounce() {
-    this.token.ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.token.render()
     // move the token in dY direciton
     this.moveInDyDir();
@@ -109,7 +111,7 @@ class Squash {
   }
 
   render(){
-    setInterval(this.bounce, 20);
+    this.bounce();
   }
 }
 
