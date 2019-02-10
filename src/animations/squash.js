@@ -1,63 +1,67 @@
 // squash animation
 class Squash {
   constructor(props) {
-    this.token = props.token;
+    this.token     = props.token;
+    this.pos       = this.token.getPosition();
+    this.topWall   = props.token.walls[0];
+    this.botWall   = props.token.walls[1];
+    this.leftWAll  = props.token.walls[2];
+    this.rightWall = props.token.walls[3];
 
-    this.topWall   = props.token.walls[0]
-    this.botWall   = props.token.walls[1]
-    this.leftWAll  = props.token.walls[2]
-    this.rightWall = props.token.walls[3]
-    this.diff = [10, 10];
+    this.speed = 1; // initial speed
+    this.acceleration = 20; // initial accel
+    this.threshhold = .05; //  stop animationwhen speed reaches this
+    this.hitCount = 1; // start with 0 bounces
 
-    this.moveInDir = this.moveInDir.bind(this)
-    this.move = this.move.bind(this)
+    this.bounce = this.bounce.bind(this)
+    this.increaseAccel = this.increaseAccel.bind(this);
+    this.hitWall = this.hitWall.bind(this)
   }
 
-  moveInDir(){
-    // let diff = [0, 0];
-    let leftOffset;
-    let rightOffset;
-    const pos = this.token.getPosition()
-    const xPos = pos[0]
-    const yPos = pos[1]
-    const dims = this.token.getDimensions()
-    const width = dims[0]
-    const height = dims[1]
-    // const tokenArea = width * height;
-
-    if (xPos < this.leftWAll) {
-      console.log('hit Left wall')
-      rightOffset = +10;
-      this.diff[0] = rightOffset; 
-    } else if (xPos + width >= this.rightWall) {
-      console.log('hit Right wall')
-      rightOffset = -10;
-      this.diff[0] = rightOffset; 
+  hitWall(){
+    const yPos = this.pos[1]
+    if (yPos + 50 >= this.botWall) {
+      return true;
+    } else if (yPos <= this.topWall) {
+      return true;
     }
-    if (yPos > this.botWall) {
-      console.log('hit Bot wall')
-      leftOffset = -10;
-      this.diff[1] = leftOffset; 
-    } else if (yPos + height <= this.topWall) {
-      console.log('hit Top wall')
-      leftOffset= +10;
-      this.diff[1] = leftOffset;
-    }
-
-    console.log(`xPpos + w: ${xPos + width}, xPpos: ${xPos}, yPpos + h: ${yPos + height}, yPpos: ${yPos}`)
-    console.log(`leftW: ${this.leftWAll}, rightW: ${this.rightWall}, topW: ${this.topWall}, botW: ${this.botWall}`)
-    console.log(this.diff);
-    return this.diff;
+    return false;
   }
 
+  increaseAccel() {
+    this.acceleration = this.acceleration * 1.2;
+    const newY = this.pos[1] + this.acceleration
+    if ( newY > this.botWall) {
+      this.acceleration = newY - this.botWall;
+    } else if (newY < this.topWall) {
+      this.acceleration = this.topWall - newY;
+    }
+  }
 
-  move() {
-    this.token.changePosition(this.moveInDir())
+  bounce() {
+    // check if hit wall
+    let wallHit = this.hitWall();
+    if (wallHit) {
+      console.log('WALL HIT')
+      // increment hitCount
+      this.hitCount += 1;
+      // set yDelta direction
+      this.speed = this.speed * -1;
+      // set new wall height
+      this.topWall  = this.topWall - this.topWall / 6;
+    }
+    // move by yDelta
+    this.increaseAccel();
+    let delta = (this.speed * this.acceleration)
+    let xPos = this.pos[0]
+    let yPos = this.pos[1] + delta;
+    console.log(`NEXT action: ${yPos} speed: ${this.speed} acc: ${this.acceleration}`)
     this.token.render()
+    this.token.setPosition(xPos, yPos);
   }
 
   render(){
-    // setInterval(this.move, 250);
+    // setInterval(this.bounce, 1000);
   }
 }
 

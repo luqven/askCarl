@@ -28,7 +28,8 @@ class Token {
         shape: this.shape,
         color: this.color,
         dims: this.dimensions,
-        pos: this.position,
+        pos: `${this.position[0]}, ${this.position[1]}`,
+        walls: this.walls,
       }
     }
     console.log( currentTokenState )
@@ -81,7 +82,7 @@ class Token {
   render() {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.getTokenAttributes();
-    this.logger();
+    // this.logger();
     switch (this.shape) {
       case "square":
         this.ctx.fillRect(this.xPos, this.yPos, this.width, this.height)
