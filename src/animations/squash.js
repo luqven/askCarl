@@ -17,10 +17,10 @@ class Squash {
     this.width        = this.dimensions[0]; // this width gets changed
     this.initialW     = this.dimensions[0]; // store for later refrence
 
-    this.deltaY       = Util.getRandom(1, 2);   // initial vertical change
+    this.deltaY       = 2;   // initial vertical change
     this.deltaX       = 0;   // initial vertical change
-    this.acceleration = Util.getRandom(10, 20);  // initial accel
-    this.friction     = Util.getRandomFraction(0.9, 0.9); // initial friction fraction
+    this.acceleration = 10;   // initial accel
+    this.friction     = .889; // initial friction fraction
     this.hitCount     = 1;   // start with 0 bounces
     
     this.bounce        = this.bounce.bind(this);
