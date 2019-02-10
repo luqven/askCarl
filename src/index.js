@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     shape: "square",
     color: "lightblue",
     dimensions: [50, 50], // [width, height]
-    position: [canvas.width / 2, canvas.height / 2 ], // [xStartPos, yStartPos]
+    // [xStartPos - 1/2 * width, yStartPos - 1/2 * height]
+    position: [canvas.width / 2 - 25, canvas.height / 2 - 25],
     walls: [0, canvas.height, 0, canvas.width],  // [topW, botW, leftW, rightW]
     ctx: canvas.getContext('2d'),
   })
