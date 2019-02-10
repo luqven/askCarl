@@ -13,10 +13,11 @@ class Squash {
     this.initialH     = this.token.dimensions[1];
     this.width        = this.dimensions[0]; // this width gets changed
     this.initialW     = this.dimensions[0]; // store for later refrence
+
     this.deltaY       = 2;   // initial vertical change
     this.deltaX       = 0;   // initial vertical change
-    this.deltaD       = 10;  // initial dimensions change
     this.acceleration = 20;  // initial accel
+    this.friction     = 0.9; // initial friction fraction
     this.hitCount     = 1;   // start with 0 bounces
     
     this.bounce        = this.bounce.bind(this);
@@ -24,11 +25,12 @@ class Squash {
     this.increaseAccel = this.increaseAccel.bind(this);
     this.moveInDyDir   = this.moveInDyDir.bind(this);
     this.reverseDeltaY = this.reverseDeltaY.bind(this);
-
+    
     //////////////////////////////////////
     // TO DO: threshold params
     //////////////////////////////////////
-
+    
+    // this.deltaD       = 10;  // initial dimensions change
     // this.threshold    = this.botWall -50; // pos of squish region of canvas
     // this.resize       = false;
     // this.hitThreshold  = this.hitThreshold.bind(this);
@@ -38,10 +40,14 @@ class Squash {
   }
 
   hitWall(){
-    // return true if token hit botWall or topWall
+    // return true if token hit a wall
     if (this.pos[1] <= this.topWall){
       return true;
     } else if (this.pos[1] + this.height >= this.botWall) {
+      return true;
+    } else if (this.pos[0] + this.width >= this.rightWall) {
+      return true;
+    } else if (this.pos[0] <= this.leftWAll) {
       return true;
     }
     return false;
@@ -76,7 +82,7 @@ class Squash {
 
   reverseDeltaY(){
     // reverse verticle delta direction
-    this.deltaY = this.deltaY * -1;
+    this.deltaY =  this.friction * this.deltaY * -1;
   }
 
   increaseAccel() {
@@ -89,6 +95,7 @@ class Squash {
   }
   
   bounce() {
+    this.token.ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.token.render()
     // move the token in dY direciton
     this.moveInDyDir();
@@ -102,7 +109,7 @@ class Squash {
   }
 
   render(){
-    setInterval(this.bounce, 50);
+    setInterval(this.bounce, 20);
   }
 }
 

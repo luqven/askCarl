@@ -80,7 +80,7 @@ class Token {
   }
 
   render() {
-    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
     this.getTokenAttributes();
     // this.logger();
     switch (this.shape) {

@@ -9,7 +9,7 @@ class Animations {
   }
 
   render(){
-    // setInterval(this.token.squash, 1000);
+    this.token.ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.squash.render()
   }
 }
