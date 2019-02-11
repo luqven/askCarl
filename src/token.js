@@ -8,7 +8,7 @@ class Token {
     this.color = props.color;
     this.ctx = props.ctx
     this.dir = "down"
-    this.dimensions = props.dimensions; // [ w, h ],
+    this.dimensions = props.dimensions; // [ w, h, r ],
     this.position = props.position;     // [ startX, startY ],
     this.walls = props.walls            // [ top, bottom, left, right ]
   
@@ -56,8 +56,10 @@ class Token {
   }
 
   getDimensions(){
-    this.width = this.dimensions[0];
+    this.width  = this.dimensions[0];
     this.height = this.dimensions[1];
+    this.radius = this.dimensions[2];
+
 
     return [this.width, this.height];
 
@@ -85,7 +87,15 @@ class Token {
     // this.logger();
     switch (this.shape) {
       case "square":
-        this.ctx.fillRect(this.xPos, this.yPos, this.width, this.height)
+        this.ctx.fillRect(this.xPos, this.yPos, this.width, this.height);
+        this.ctx.closePath();
+        return;
+      case "circle":
+        this.ctx.beginPath();
+        this.ctx.arc(this.xPos, this.yPos, this.radius, 0, Math.PI * 2, false);
+        this.ctx.fill();
+        this.ctx.closePath();
+        return;
       default:
         return null;
     }

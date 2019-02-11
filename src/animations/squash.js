@@ -13,6 +13,7 @@ class Squash {
     this.pos          = this.token.position;   // [xPos, yPos]
     this.dimensions   = this.token.dimensions; // [w, h] 
     this.height       = this.token.dimensions[1];
+    this.radius       = this.token.dimensions[2];
     this.initialH     = this.token.dimensions[1];
     this.width        = this.dimensions[0]; // this width gets changed
     this.initialW     = this.dimensions[0]; // store for later refrence
@@ -44,15 +45,28 @@ class Squash {
 
   hitWall(){
     // return true if token hit a wall
-    if (this.pos[1] <= this.topWall){
-      return true;
-    } else if (this.pos[1] + this.height >= this.botWall) {
-      return true;
-    } else if (this.pos[0] + this.width >= this.rightWall) {
-      return true;
-    } else if (this.pos[0] <= this.leftWAll) {
-      return true;
+    if (this.token.shape !== "circle"){
+      if (this.pos[1] <= this.topWall){
+        return true;
+      } else if (this.pos[1] + this.height >= this.botWall) {
+        return true;
+      } else if (this.pos[0] + this.width >= this.rightWall) {
+        return true;
+      } else if (this.pos[0] <= this.leftWAll) {
+        return true;
+      }
+    } else if (this.token.shape === "circle") {
+      if (this.pos[1] <= this.topWall) {
+        return true;
+      } else if (this.pos[1] + this.radius + 2.66 >= this.botWall) {
+        return true;
+      } else if (this.pos[0] + this.radius >= this.rightWall) {
+        return true;
+      } else if (this.pos[0] <= this.leftWAll) {
+        return true;
+      }
     }
+
     return false;
   }
 
@@ -111,7 +125,7 @@ class Squash {
   }
 
   render(){
-    this.bounce();
+    this.token.render();
   }
 }
 
