@@ -9,6 +9,7 @@ class movingObject {
     this.rightWall = props.token.walls[3];
     
     this.pos          = this.token.position;   // [xPos, yPos]
+    this.initialPos   = this.pos.slice(0);     // initial [xPos, yPos]
     this.dimensions   = this.token.dimensions; // [w, h] 
     this.height       = this.token.dimensions[1];
     this.radius       = this.token.dimensions[2];
@@ -122,7 +123,10 @@ class movingObject {
   
   bounce() {
     this.token.render()
-    this.deltaX = this.deltaX * (this.friction / .9)
+    if (Math.abs(this.pos[0] - this.initialPos[0]) > 10 || Math.abs(this.pos[0] - this.initialPos[0]) < 30) {
+      this.deltaX = this.deltaX * (this.friction / .92)
+      // console.log(`${this.pos[0]} === ${this.initialPos[0]}`)
+    }
     // check if render should end
     if (Math.abs(this.deltaY ) < this.thresholdY  && Math.abs(this.deltaX) <= this.thresholdX) {
       this.over = true
