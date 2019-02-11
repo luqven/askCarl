@@ -1,8 +1,6 @@
 import Util from "../util";
 
-
-// squash animation
-class Squash {
+class movingObject {
   constructor(props) {
     this.token     = props.token;
     this.topWall   = props.token.walls[0] / 3;
@@ -18,10 +16,12 @@ class Squash {
     this.width        = this.dimensions[0]; // this width gets changed
     this.initialW     = this.dimensions[0]; // store for later refrence
 
-    this.deltaY       = 2;     // initial vertical change
-    this.deltaX       = 0;     // initial vertical change
+    this.deltaY       = props.token.deltaY;     // initial vertical change
+    this.deltaX       = props.token.deltaX;     // initial vertical change
     this.acceleration = 10;    // initial accel
     this.friction     = .889;  // initial friction fraction
+    this.thresholdY   = 0.009   // stop animation at this speed
+    this.thresholdX   = 0.11    // stop animation at this speed
     this.ended        = false; // true when delta ~= 0;
     
     this.bounce        = this.bounce.bind(this);
@@ -29,6 +29,7 @@ class Squash {
     this.increaseAccel = this.increaseAccel.bind(this);
     this.moveInDyDir   = this.moveInDyDir.bind(this);
     this.reverseDeltaY = this.reverseDeltaY.bind(this);
+    this.reverseDeltaX = this.reverseDeltaX.bind(this);
     
     //////////////////////////////////////
     // TO DO: threshold params
@@ -45,29 +46,32 @@ class Squash {
 
   hitWall(){
     // return true if token hit a wall
-    if (this.token.shape !== "circle"){
-      if (this.pos[1] <= this.topWall){
-        return true;
+    if (this.token.shape === "square"){
+      // debugger
+      // console.log(this.token)
+      if (this.pos[0] + this.width >= this.rightWall) {
+          return 1;
+      } else if (this.pos[0] <= this.leftWAll) {
+          return 1;
+      } else if (this.pos[1] <= this.topWall){
+          return 0;
       } else if (this.pos[1] + this.height >= this.botWall) {
-        return true;
-      } else if (this.pos[0] + this.width >= this.rightWall) {
-        return true;
-      } else if (this.pos[0] <= this.leftWAll) {
-        return true;
-      }
+          return 0;
+        }
     } else if (this.token.shape === "circle") {
-      if (this.pos[1] <= this.topWall) {
-        return true;
-      } else if (this.pos[1] + this.radius + 2.66 >= this.botWall) {
-        return true;
-      } else if (this.pos[0] + this.radius >= this.rightWall) {
-        return true;
-      } else if (this.pos[0] <= this.leftWAll) {
-        return true;
+      // debugger
+      if (Math.abs(this.deltaY) >= this.thresholdY && this.pos[1] <= this.topWall) {
+        return 0;
+      } else if (Math.abs(this.deltaY) >= this.thresholdY && this.pos[1] + this.radius + 2.66 >= this.botWall) {
+        return 0;
+      } if (Math.abs(this.deltaX) >= this.thresholdX && this.pos[0] + this.radius >= this.rightWall) {
+        return 1;
+      } else if (Math.abs(this.deltaX) >= this.thresholdX && this.pos[0] + this.radius <= this.leftWAll) {
+        return 1;
       }
     }
 
-    return false;
+    return 3;
   }
 
 /////////////////////////////////////////
@@ -101,9 +105,14 @@ class Squash {
     // reverse verticle delta direction
     this.deltaY =  this.friction * this.deltaY * -1;
   }
+  reverseDeltaX(){
+    // reverse verticle delta direction
+    this.deltaX =  this.friction * .4 * this.deltaX * -1;
+  }
 
   increaseAccel() {
     this.deltaY += 1;
+    // this.deltaX += 1;
   }
 
   moveInDyDir() {
@@ -113,15 +122,23 @@ class Squash {
   
   bounce() {
     this.token.render()
+    this.deltaX = this.deltaX * (this.friction / .9)
     // check if render should end
-    // if (this.deltaY < 1) {this.over = true};
+    if (Math.abs(this.deltaY ) < this.thresholdY  && Math.abs(this.deltaX) <= this.thresholdX) {
+      this.over = true
+    };
+    if (this.over) { return }
     // move the token in dY direciton
     this.moveInDyDir();
     // check to see if wall was hit
-    if (this.hitWall() === true) {
-      // if hit reverse verticle delta polarity
+    const hitWall = this.hitWall();
+    if (hitWall === 0) {
       this.reverseDeltaY();
-    } else {
+    }
+    if (hitWall === 1) {
+      this.reverseDeltaX();
+    } 
+    if (hitWall === 3 ) {
       this.increaseAccel();
     }
   }
@@ -132,4 +149,4 @@ class Squash {
   }
 }
 
-export default Squash;
+export default movingObject;

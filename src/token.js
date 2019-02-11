@@ -11,7 +11,9 @@ class Token {
     this.dir = "down"
     this.dimensions = props.dimensions; // [ w, h, r ],
     this.position = props.position;     // [ startX, startY ],
-    this.walls = props.walls            // [ top, bottom, left, right ]
+    this.walls = props.walls;           // [ top, bottom, left, right ]
+    this.deltaX = props.deltaX;
+    this.deltaY = props.deltaY;
   
 
     this.logger = this.logger.bind(this);

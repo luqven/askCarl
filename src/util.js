@@ -2,12 +2,12 @@ const Util = {
   inherits: function inherits(childClass, parentClass) {
     // TO DO
   },
-  getRandom: function getRandom(min, max) {
+  getRandom: function (min, max) {
     return Math.floor(Math.random() * (max  - min) + min);
   },
-  getRandomFraction: function getRandom(min, max) {
+  getRandomFraction: function (min, max) {
     return Math.random() * (max - min) + min;
-  }
+  },
 }
 
 export default Util;
