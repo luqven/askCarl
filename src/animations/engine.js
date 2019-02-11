@@ -18,11 +18,11 @@ class Squash {
     this.width        = this.dimensions[0]; // this width gets changed
     this.initialW     = this.dimensions[0]; // store for later refrence
 
-    this.deltaY       = 2;   // initial vertical change
-    this.deltaX       = 0;   // initial vertical change
-    this.acceleration = 10;   // initial accel
-    this.friction     = .889; // initial friction fraction
-    this.hitCount     = 1;   // start with 0 bounces
+    this.deltaY       = 2;     // initial vertical change
+    this.deltaX       = 0;     // initial vertical change
+    this.acceleration = 10;    // initial accel
+    this.friction     = .889;  // initial friction fraction
+    this.ended        = false; // true when delta ~= 0;
     
     this.bounce        = this.bounce.bind(this);
     this.hitWall       = this.hitWall.bind(this);
@@ -113,6 +113,8 @@ class Squash {
   
   bounce() {
     this.token.render()
+    // check if render should end
+    // if (this.deltaY < 1) {this.over = true};
     // move the token in dY direciton
     this.moveInDyDir();
     // check to see if wall was hit
@@ -126,6 +128,7 @@ class Squash {
 
   render(){
     this.token.render();
+    if(this.token.type === 'bounce') { this.bounce(); }
   }
 }
 

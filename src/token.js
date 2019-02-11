@@ -5,6 +5,7 @@
 class Token {
   constructor(props){
     this.shape = props.shape;
+    this.type = props.type;
     this.color = props.color;
     this.ctx = props.ctx
     this.dir = "down"

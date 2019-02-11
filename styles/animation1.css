@@ -1,0 +1,8 @@
+.animation1-container{
+   display: flex;
+    flex-direction: row-reverse;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background-color: rgb(235, 247, 247);
+    background-color: #a5eeff;
+}

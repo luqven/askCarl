@@ -6,11 +6,12 @@ console.log('webpack is running...')
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
   const canvas = document.getElementById('canvas');
+  const canvas2 = document.getElementById('canvas2');
   var animations = [];
 
   // set shapes to render
-  let square = Shapes(canvas).square;
-  let circle = Shapes(canvas).circle;
+  let square = Shapes(canvas2, 'slide').square;
+  let circle = Shapes(canvas, 'bounce').circle;
   // add shapes to animations array
   animations.push(square);
   animations.push(circle);
@@ -18,11 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
   function render() {
     console.log(animations);
-    setInterval(() => {
+    var bouncing = setInterval(() => {
       canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+      canvas2.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
       animations.forEach((animation) => {
-        animation.bounce()
+        animation.render()
+        if (animation.over) {clearInterval(bouncing);}
       })}, 20);
+    bouncing;
     };
   render();
 });
