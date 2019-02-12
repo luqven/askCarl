@@ -1,4 +1,5 @@
 /* Menu Bar Stylesheet */
+
 .menu-bar-container {
     display: flex;
     flex-direction: row;
@@ -9,7 +10,14 @@
     border-bottom: 1px solid white;
     box-sizing: border-box;
     box-shadow: 1px 4px 20px 0px lightgrey;
+}
 
+.menu-bar-container p, li, h1 {
+    color: black !important;
+}
+
+.menu-bar-container i {
+    color: #34A853 !important;
 }
 
 .menu-bar-container > header {
@@ -25,12 +33,19 @@
 }
 
 .menu-bar-shadow {
-    top: 60px;
+    /* top: 60px;
     position: absolute;
     background-color: white;
     border: 1px solid white;
     box-sizing: border-box;
     box-shadow: -1px 7px 17px 1px rgb(224, 224, 224);
+    width: 100%; */
+    top: 60px;
+    position: absolute;
+    background-color: white;
+    border: 1px solid white;
+    box-sizing: border-box;
+    box-shadow: 0px -4px 8px 5px white;
     width: 100%;
 }
 

@@ -4,5 +4,13 @@
     padding-top: 80px;
     padding-bottom: 40px;
     background-color: rgb(235, 247, 247);
-    background-color: #a5eeff;
+    background-color: #EA4335;
+}
+
+.animation1-containerp, li, h1, h2, i , p{
+    color: #ffffff;
+}
+
+.animation1-container h5 {
+    color: #FBBC05;
 }

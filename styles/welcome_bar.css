@@ -3,7 +3,11 @@
     flex-direction: row;
     padding-top: 80px;
     padding-bottom: 40px;
-    background-color: rgb(235, 247, 247);
+    background-color: #4285F4;
+}
+
+.welcome-banner-container p, li, h1, h2, i {
+    color: #ffffff;
 }
 
 .welcome-b-text {

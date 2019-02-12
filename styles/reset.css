@@ -1,11 +1,12 @@
 /* CSS Reset */
-html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav, p {
+html, body, div, span, h1, h2, h3, h4, h5, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav, p {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  text-align: left;
 }
 
 body {
