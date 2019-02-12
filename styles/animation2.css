@@ -1,0 +1,15 @@
+.animation2-container{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40px;
+  background: #FBBC05;
+  padding-top: 1px;
+}
+
+.animation2-container, li, h1, h2, i , p{
+    color: #ffffff;
+}
+
+.animation2-container h5 {
+    color: #EA4335;
+}

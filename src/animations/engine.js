@@ -32,22 +32,12 @@ class movingObject {
     this.moveInDyDir   = this.moveInDyDir.bind(this);
     this.reverseDeltaY = this.reverseDeltaY.bind(this);
     this.reverseDeltaX = this.reverseDeltaX.bind(this);
-    
-    //////////////////////////////////////
-    // TO DO: threshold params
-    //////////////////////////////////////
-    
-    // this.deltaD       = 10;  // initial dimensions change
-    // this.threshold    = this.botWall -50; // pos of squish region of canvas
-    // this.resize       = false;
-    // this.hitThreshold  = this.hitThreshold.bind(this);
-    // this.reverseDeltaD = this.reverseDeltaD.bind(this);
-    // this.changeDimensions = this.changeDimensions.bind(this);
 
   }
 
+  // return corresponding wall integer if token hit a wall
   hitWall(){
-    // return true if token hit a wall
+    // login for square token
     if (this.token.shape === "square"){
       // debugger
       // console.log(this.token)
@@ -60,6 +50,7 @@ class movingObject {
       } else if (this.pos[1] + this.height >= this.botWall) {
           return 0;
         }
+    // login for circle token, accounts for raidus
     } else if (this.token.shape === "circle") {
       // debugger
       if (Math.abs(this.deltaY) >= this.thresholdY && this.pos[1] <= this.topWall) {
@@ -80,28 +71,13 @@ class movingObject {
 //    TO DO: Implement dim resizing
 /////////////////////////////////////////
 
-  // hitThreshold() {
-  //   if (this.pos[1] === this.threshold) {
-  //     this.reverseDeltaD();
-  //     this.resize = !this.resize;
-  //     return true;
-  //   } else if (this.pos[1] + this.height === this.botWall) {
-  //     this.reverseDeltaD();
-  //     return true;
-  //   }
-  //   return false;
-  // }
+  growToken() {
 
-  // changeDimensions() {
-  //   this.width += this.deltaD;
-  //   // this.height += this.deltaD;
-  //   this.token.setDimensions(this.width, this.height)
-  // }
+  }
 
-  // reverseDeltaD(){
-  //   // reverse horizontal delta direction
-  //   this.deltaD = this.deltaD * -1;
-  // }
+/////////////////////////////////////////
+
+
 
   reverseDeltaY(){
     // reverse verticle delta direction
@@ -124,25 +100,43 @@ class movingObject {
   
   bounce() {
     this.token.render()
+
+    // change deltaX when between start pos + 10 and  start pos + 30
+    // this simulates slow in and slow out animation behavior
     if (Math.abs(this.pos[0] - this.initialPos[0]) > 10 || Math.abs(this.pos[0] - this.initialPos[0]) < 30) {
       this.deltaX = this.deltaX * (this.friction / .92)
-      // console.log(`${this.pos[0]} === ${this.initialPos[0]}`)
     }
-    // check if render should end
+
+    // set end condition to true if delats have reached thresholds
     if (Math.abs(this.deltaY ) < this.thresholdY  && Math.abs(this.deltaX) <= this.thresholdX) {
       this.over = true
     };
+
+    // check if render should end
     if (this.over) { return }
+    
+    // if token location is between yThreshholds 1 and 2, or 3 and 4
+    // if this.withinHeightThreshold();
+      // grow the token
+      // this.growToken();
+    // otherwise
+    // else when outside yThresh 1, 2, 3, or 4
+      // shrink the token (up to min size) 
+      // this.shrinkToken
+
     // move the token in dY direciton
     this.moveInDyDir();
     // check to see if wall was hit
     const hitWall = this.hitWall();
+    // if hit bottom or top wall
     if (hitWall === 0) {
       this.reverseDeltaY();
     }
+    // if hit left or right wall
     if (hitWall === 1) {
       this.reverseDeltaX();
     } 
+    // if no wall hit
     if (hitWall === 3 ) {
       this.increaseAccel();
     }

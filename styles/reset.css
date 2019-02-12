@@ -21,6 +21,16 @@ img {
   width: 100%
 }
 
+ h2 {
+    font-size: x-large;
+    font-weight: 800;
+}
+
+ p {
+    font-weight: 500;
+    margin: 5px;
+}
+
 .hidden {
   display: none;
 }
