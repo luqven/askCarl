@@ -13,12 +13,12 @@
 }
 
 /* scale up intial box state */
-.hover-card-container:hover {
+.hover-card-container.hovered {
     transform: scale(1.1, 1.1);
 }
 /* change the opacity of the hidden psudo element */
 
-.hover-card-container:hover::after {
+.hover-card-container.hovered::after {
     opacity: 1;
 }
 

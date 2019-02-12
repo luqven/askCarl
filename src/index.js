@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   console.log("DOM fully loaded and parsed");
+  const animation1Container = document.getElementById('a1');
   const canvas = document.getElementById('canvas');
   const canvas2 = document.getElementById('canvas2');
   var animations = [];
@@ -40,6 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
     animations.forEach((animation) => {
       animation.render()
     })
+    // add hover efect when scrolled to specific animation
+    if (window.pageYOffset > 270) {
+      animation1Container.classList.add('hovered')
+    } else if (window.pageYOffset < 270) {
+      animation1Container.classList = ('hover-card-container')
+    }
   };
   window.requestAnimationFrame(render);
 });
