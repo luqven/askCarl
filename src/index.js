@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   console.log("DOM fully loaded and parsed");
+  const animation0Container = document.getElementById('a0');
   const animation1Container = document.getElementById('a1');
   const canvas = document.getElementById('canvas');
   const canvas2 = document.getElementById('canvas2');
@@ -28,25 +29,28 @@ document.addEventListener("DOMContentLoaded", () => {
   let square = Shapes(canvas2, 'bounce').square;
   let circle = Shapes(canvas, 'bounce').circle;
   // add shapes to animations array
-  animations.push(square);
-  animations.push(circle);
+  // animations.push(square);
+  // animations.push(circle);
   // render the shapes
   console.log(square);
-  function render() {
+  function draw() {
     // console.log(animations);
-    window.requestAnimationFrame(render)
+    window.requestAnimationFrame(draw)
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
     canvas2.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 
-    animations.forEach((animation) => {
-      animation.render()
-    })
     // add hover efect when scrolled to specific animation
     if (window.pageYOffset > 270) {
+      circle = Shapes(canvas, 'bounce').circle; // reset circle animation
       animation1Container.classList.add('hovered')
+      animation0Container.classList = ('hover-card-container')
+      square.render();
     } else if (window.pageYOffset < 270) {
+      square = Shapes(canvas2, 'bounce').square; // reset square animation
+      animation0Container.classList.add('hovered')
+      circle.render();
       animation1Container.classList = ('hover-card-container')
     }
   };
-  window.requestAnimationFrame(render);
+  window.requestAnimationFrame(draw);
 });

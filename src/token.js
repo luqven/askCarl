@@ -1,4 +1,3 @@
-// import squash from "./animations/squash";
 
 // token JS file
 
@@ -16,7 +15,7 @@ class Token {
     this.deltaY = props.deltaY;
   
 
-    this.logger = this.logger.bind(this);
+    this.logger   = this.logger.bind(this);
     this.getColor = this.getColor.bind(this);
     this.getPosition = this.getPosition.bind(this);
     this.setPosition = this.setPosition.bind(this);
@@ -24,6 +23,7 @@ class Token {
     this.setDimensions = this.setDimensions.bind(this);
     this.getTokenAttributes = this.getTokenAttributes.bind(this);
   }
+
 
   logger() {
     let currentTokenState = {

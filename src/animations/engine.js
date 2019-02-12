@@ -25,6 +25,7 @@ class movingObject {
     this.thresholdX   = 0.11    // stop animation at this speed
     this.ended        = false; // true when delta ~= 0;
     
+  
     this.bounce        = this.bounce.bind(this);
     this.hitWall       = this.hitWall.bind(this);
     this.increaseAccel = this.increaseAccel.bind(this);
@@ -149,7 +150,9 @@ class movingObject {
 
   render(){
     this.token.render();
-    if(this.token.type === 'bounce') { this.bounce(); }
+    if(this.token.type === 'bounce') {
+       this.bounce(); 
+      }
   }
 }
 
