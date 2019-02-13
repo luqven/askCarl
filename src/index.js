@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const canvas2 = document.getElementById('canvas2');
   const canvas3 = document.getElementById('canvas3');
   const flipcard1 = document.getElementById('fp01');
+  const flipcard2 = document.getElementById('fp02');
 
 
   // flip card 01
@@ -32,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   flipcard1.addEventListener("mouseleave", () => {
     flipcard1.classList = "card";
+  })
+  // flip card 02
+  flipcard2.addEventListener("mouseenter", () => {
+    flipcard2.classList.add("is-flipped")
+  })
+  flipcard2.addEventListener("mouseleave", () => {
+    flipcard2.classList = "card";
   })
 
   var animations = [];
@@ -45,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   animations.push(squash);
   
   // render the shapes
-  console.log(square);
+  // console.log(square);
   function draw() {
     // console.log(animations);
     window.requestAnimationFrame(draw)
@@ -63,12 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
       square = Shapes(canvas2, 'bounce').square; // reset square animation
       animation2Container.classList.add('hovered')
       squash.render();
-      animation1Container.classList = ('hover-card-container')
+      animation1Container.classList = ("hover-card-container card-face frontface2")
     }
 
     if (window.pageYOffset < 169) {
       animation2Container.classList = ('hover-card-container')
-      animation1Container.classList = ('hover-card-container')
+      animation1Container.classList = ("hover-card-container card-face frontface2")
       squash = Shapes(canvas3, 'bounce').squash; // reset squash animation
       square = Shapes(canvas2, 'bounce').square; // reset square animation
     }

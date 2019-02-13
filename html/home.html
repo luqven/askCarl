@@ -84,8 +84,53 @@
                 and then another" - Walt Disney
               </h5>
             </div>
-            <div class="hover-card-container" id="a1">
-              <canvas width="280" height="330" id="canvas2"></canvas>
+            <div class="flipcard">
+              <div class="card" id="fp02">
+                <div class="card-face frontface">
+                  <div class=" hover-card-container" id="a1">
+                    <canvas width="280" height="330" id="canvas2"></canvas>
+                  </div>
+                </div>
+                <div class="card-face backface">
+                  <code>
+                  { ... <br>
+                    reverseDeltaX(){ <br>
+                    // reverse verticle delta direction <br>
+                    this.deltaX = this.friction * this.deltaX * -1; <br>
+                    } <br>
+
+                    increaseAccel() { <br>
+                      ...
+                    // this.deltaX += 1; <br>
+                    } <br>
+
+                    moveInDyDir() { <br>
+                    // move token to postion after adding delta <br><br>
+                    this.token.changePosition([this.deltaX, this.deltaY]) <br><br>
+                    } <br><br>
+                    // bounce logic<br>
+                    bounce() {<br><br>
+                    this.token.render()<br><br>
+
+                    // change deltaX when between start pos + 10 and start pos + 30 <br><br>
+                    // this simulates slow in and slow out animation behavior <br><br>
+                    if (Math.abs(this.pos[0] - this.initialPos[0]) > 10 || Math.abs(this.pos[0] - this.initialPos[0]) < 30) { <br><br>
+                      this.deltaX=this.deltaX * (this.friction / .92) } <br><br>
+                    // move the token in dY direciton <br><br>
+                    this.moveInDyDir(); <br><br>
+                     // check to see if wall was hit <br><br>
+                     // wallHit() reutrns an arr of integers representing [left, top, bot, right walls] <br>
+                    const wallHit=this.wallHit();  <br><br>
+                    // if hit bottom or top wall  <br><br>
+                    if (wallHit.includes(1) || wallHit.includes(2)) { this.reverseDeltaY(); }  <br><br>
+                    // if hit left or right wall  <br><br>
+                    if (wallHit.includes(3) || wallHit.includes(4)) { this.reverseDeltaX(); } <br><br>
+                    // if no wall hit  <br><br>
+                    if (wallHit.length < 1) { this.increaseAccel();} <br><br>
+                   }<br>
+                  </code>
+                </div>
+              </div>
             </div>
       </div>
       <!-- Animation2 -->

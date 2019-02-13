@@ -50,16 +50,16 @@ class movingObject {
     // wallIndexes = [1, 2, 3, 4]  // [top, bottm, left, right]
     let hitWalls = []
 
-    console.log(`
-      ${topLeft} ..............${topRight} ,
-      .                                    .
-      .                                    .
-      .                                    .
-      .                                    .
-      .                                    .
-      .                                    .
-      .                                    .
-      ${botLeft} ..............${botRight}`);
+    // console.log(`
+    //   ${topLeft} ..............${topRight} ,
+    //   .                                    .
+    //   .                                    .
+    //   .                                    .
+    //   .                                    .
+    //   .                                    .
+    //   .                                    .
+    //   .                                    .
+    //   ${botLeft} ..............${botRight}`);
 
     if (
       topLeft[0]  <=  this.topWall[0] ||
@@ -153,7 +153,7 @@ class movingObject {
 /////////////////////////////////////////
 
   growToken() {
-    // debugger
+    // 
     this.token.setRadius(this.radius * this.deltaR)
   }
 
@@ -191,7 +191,7 @@ class movingObject {
 
     // set end condition to true if delats have reached thresholds
     if (Math.abs(this.deltaY ) < this.thresholdY  && Math.abs(this.deltaX) <= this.thresholdX) {
-      // debugger 
+      //  
       this.over = true
     };
 
@@ -203,7 +203,7 @@ class movingObject {
 
     // check to see if wall was hit
     const newHitWall = this.newHitwall();
-    // debugger
+    // 
     // if hit bottom or top wall
     if (newHitWall.includes(1) || newHitWall.includes(2)) {
       this.reverseDeltaY();
