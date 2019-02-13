@@ -20,7 +20,7 @@ class Token {
     this.getPosition = this.getPosition.bind(this);
     this.setPosition = this.setPosition.bind(this);
     this.getDimensions = this.getDimensions.bind(this);
-    this.setDimensions = this.setDimensions.bind(this);
+    this.setRadius = this.setRadius.bind(this);
     this.getTokenAttributes = this.getTokenAttributes.bind(this);
   }
 
@@ -63,14 +63,11 @@ class Token {
     this.height = this.dimensions[1];
     this.radius = this.dimensions[2];
 
-
     return [this.width, this.height];
-
   }
 
-  setDimensions(newW, newH) {
-    this.dimensions[0] = newW;
-    this.dimensions[1] = newH;
+  setRadius(newRadius) {
+    this.dimensions[2] += newRadius;
   }
 
   getColor() {
@@ -95,7 +92,7 @@ class Token {
         return;
       case "circle":
         this.ctx.beginPath();
-        this.ctx.arc(this.xPos, this.yPos, this.radius, 0, Math.PI * 2, false);
+        this.ctx.arc(this.xPos + 15, this.yPos, this.radius, 0, Math.PI * 2, true);
         this.ctx.fill();
         this.ctx.closePath();
         return;

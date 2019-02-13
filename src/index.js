@@ -19,18 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   console.log("DOM fully loaded and parsed");
-  const animation0Container = document.getElementById('a0');
   const animation1Container = document.getElementById('a1');
-  const canvas3 = document.getElementById('canvas3');
+  const animation2Container = document.getElementById('a2');
   const canvas2 = document.getElementById('canvas2');
-  // var animations = [];
+  const canvas3 = document.getElementById('canvas3');
+  var animations = [];
 
   // set shapes to render
   let square = Shapes(canvas2, 'bounce').square;
-  let circle = Shapes(canvas3, 'bounce').circle;
-  // add shapes to animations array
-  // animations.push(square);
-  // animations.push(circle);
+  let squash = Shapes(canvas3, 'bounce').squash;
+
+  // store shapes in animations array
+  animations.push(square);
+  animations.push(squash);
+  
   // render the shapes
   console.log(square);
   function draw() {
@@ -40,23 +42,23 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas2.getContext('2d').clearRect(0, 0, canvas2.width, canvas2.height);
 
     // add hover efect when scrolled to specific animation
-    if (window.pageYOffset > 270 && window.pageYOffset < 1000) {
-      circle = Shapes(canvas3, 'bounce').circle; // reset circle animation
+    if (window.pageYOffset > 270 && window.pageYOffset < 800) {
+      squash = Shapes(canvas3, 'bounce').squash; // reset squash animation
       animation1Container.classList.add('hovered')
-      animation0Container.classList = ('hover-card-container')
+      animation2Container.classList = ('hover-card-container')
       square.render();
     } 
-    if (window.pageYOffset > 1000) {
+    if (window.pageYOffset > 820) {
       square = Shapes(canvas2, 'bounce').square; // reset square animation
-      animation0Container.classList.add('hovered')
-      circle.render();
+      animation2Container.classList.add('hovered')
+      squash.render();
       animation1Container.classList = ('hover-card-container')
     }
 
     if (window.pageYOffset < 169) {
-      animation0Container.classList = ('hover-card-container')
+      animation2Container.classList = ('hover-card-container')
       animation1Container.classList = ('hover-card-container')
-      circle = Shapes(canvas3, 'bounce').circle; // reset circle animation
+      squash = Shapes(canvas3, 'bounce').squash; // reset squash animation
       square = Shapes(canvas2, 'bounce').square; // reset square animation
     }
   };
