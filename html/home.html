@@ -121,8 +121,7 @@
                      // check to see if wall was hit <br><br>
                      // wallHit() reutrns an arr of integers representing [left, top, bot, right walls] <br>
                     const wallHit=this.wallHit();  <br><br>
-                    // if hit bottom or top wall  <br><br>
-                    if (wallHit.includes(1) || wallHit.includes(2)) { this.reverseDeltaY(); }  <br><br>
+                    .... <br>
                     // if hit left or right wall  <br><br>
                     if (wallHit.includes(3) || wallHit.includes(4)) { this.reverseDeltaX(); } <br><br>
                     // if no wall hit  <br><br>
@@ -153,8 +152,17 @@
                 curious and curiosity keeps leading us down new paths." - Walt Disney
               </h5>
             </div>
-            <div class="hover-card-container" id="a2">
-              <canvas width="280" height="330" id="canvas3"></canvas>
+            <div class="flipcard">
+              <div class="card" id="fp02">
+                <div class="card-face frontface">
+                  <div class=" hover-card-container" id="a2">
+                    <canvas width="280" height="330" id="canvas3"></canvas>
+                  </div>
+                </div>
+                <div class="card-face backface">
+                  <code>Hello</code>
+                </div>
+              </div>
             </div>
       </div>
       <!-- Animation3 -->
