@@ -43,10 +43,15 @@
 
 /* apply perspective to the 3D space */
 .flipcard {
-    width: 200px;
-    height: 260px;
+    margin: auto;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(156, 156, 156, 0.15);
+    transition: all 0.3s ease-in-out;
+    width: 280px;
+    height: 380px;
     perspective: 600px;
 }
+
 /* set the card transform origin to be at the center of the card */
 .card {
     width: 100%;
@@ -65,14 +70,26 @@
 }
 
 .frontface {
-  background: red;
+    border-radius: 4px;
+    background: white;
+}
+
+.frontface h2 {
+    margin-top: 50%;
+    text-align: center;
+    color: black;
 }
 /* rotate backface with 3d transform */
 .backface {
-  background: blue;
-  transform: rotateX(-180deg);
+    color: white;
+    border-radius: 4px;
+    background: transparent;
+    transform: rotateX(-180deg);
+    display: flex;
+    font-size: smaller;
+
 }
 /* rotate when is-flipped class present */
 .card.is-flipped {
-  transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
 }
