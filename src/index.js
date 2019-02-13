@@ -23,6 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const animation2Container = document.getElementById('a2');
   const canvas2 = document.getElementById('canvas2');
   const canvas3 = document.getElementById('canvas3');
+  const flipcard1 = document.getElementById('fp01');
+
+
+  // flip card 01
+  flipcard1.addEventListener("mouseenter", () => {
+    flipcard1.classList.add("is-flipped")
+  })
+  flipcard1.addEventListener("mouseleave", () => {
+    flipcard1.classList = "card";
+  })
+
   var animations = [];
 
   // set shapes to render

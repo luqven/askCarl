@@ -3,7 +3,7 @@ import Util from "./util";
 import movingObject from "./animations/engine";
 
 const shapes = ["square", "circle"];
-const colors = ["LightCoral", "lightblue", "lightgreen", "lightyellow",
+const colors = ["#EA4335", "lightblue", "lightgreen", "#FBBC05",
                 "greenyellow,", "honeydew", "hotpink", "indianred", "indigo",]
 const tokenWidth = 50;
 
@@ -36,7 +36,7 @@ const Shapes = (canvas, animationType) =>  {
   }
   const squashAndStretchDefalts = {
     shape: shapes[0], // squaere
-    color: colors[1],
+    color: colors[3],
     dimensions: [tokenWidth, tokenWidth, tokenWidth / 2], // [width, height, radius]
     position: [ 10, canvas.height - 90],  // [xStartPos - 1/2 * width, yStartPos - 1/2 * height]
     // walls: [0, canvas.height, 0, canvas.width],  // [topW, botW, leftW, rightW]

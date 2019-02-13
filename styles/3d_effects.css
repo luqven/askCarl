@@ -1,15 +1,15 @@
 
 /* Hidden psudo element for faster rendering of animation */
 .hover-card-container::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 280px;
-  height: 380px;
-  opacity: 0;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: opacity 0.3s ease-in-out;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 280px;
+    height: 380px;
+    opacity: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* scale up intial box state */
@@ -21,4 +21,3 @@
 .hover-card-container.hovered::after {
     opacity: 1;
 }
-
