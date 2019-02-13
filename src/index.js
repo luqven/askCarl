@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
       squash.render();
       square.reset();
     }
-
   };
   window.requestAnimationFrame(draw);
 });
