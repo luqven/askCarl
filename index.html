@@ -1,3 +1,198 @@
+<!-- HOME HTML Component -->
+
+<!DOCTYPE html>
+<html>
+
 <head>
-  <link rel="import" href="./html/home.html">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>askCarl</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- Local Files -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css" />
+  <script src="./dist/main.js"></script>
 </head>
+
+<body>
+  <div class="menu-bar-container">
+    <header>
+      <i class="fas fa-dog"></i>
+      askCarl
+    </header>
+    <!-- Menu bar nav items -->
+    <div class="menu-bar-nav">
+      <ul>
+        <li>About</li>
+      </ul>
+    </div>
+    <!-- Animations drop down -->
+    <div class="animations-dd-container">
+      <p>Animations</p>
+      <ul class="dropdown hidden">
+        <li>Squash</li>
+      </ul>
+    </div>
+    <div class="menu-bar-shadow"></div>
+  </div>
+  <!-- Animation0-->
+  <div class="welcome-banner-container">
+    <div class="welcome-b-text">
+      <h2>Welcome.</h2>
+      <p>Carl knows a lot about making things come to life. <br>
+        Follow him along as he teaches you a thing or two about
+        how CSS <br> and JavaScript can help you do that!</p>
+    </div>
+    <!-- <div class="hover-card-container" id="a0"> -->
+    <div class="flipcard">
+      <div class="card" id="fp01">
+        <div class="card-face frontface">
+          <h2>Hover over me!</h2>
+        </div>
+        <div class="card-face backface">
+          <code>
+                        for animations in webPage do |hoverOverCard|
+                          if (animationIsInteresting) {
+                            "make sure to read relevent code!"
+                        }
+                      end
+                    </code>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+  <!-- Animation1 -->
+  <div class="animation1-container">
+    <div class="welcome-b-text">
+      <h2>Follow through and overlapping action</h2>
+      <br>
+      <p>
+        Follow through & overlapping action is a general heading for two closely<br>
+        related animation techniques which form part of the 12 basic principles <br>
+        of animation, identified by Frank Thomas and Ollie Johnston in their <br>
+        authoritative 1981 book on Disney Animation, The Illusion of Life.
+      </p>
+      <br>
+      <p>
+        When applied correctly, they help to render movement realistically, and<br>
+        help to give the impression that characters follow the laws of physics.
+      </p>
+      <br>
+      <h5>
+        "Things don't come to a stop all at once guys; first there's one part <br>
+        and then another" - Walt Disney
+      </h5>
+    </div>
+    <div class="flipcard">
+      <div class="card" id="fp02">
+        <div class="card-face frontface">
+          <div class=" hover-card-container" id="a1">
+            <canvas width="280" height="330" id="canvas2"></canvas>
+          </div>
+        </div>
+        <div class="card-face backface">
+          <code>
+                  { ... <br>
+                    reverseDeltaX(){ <br>
+                    // reverse verticle delta direction <br>
+                    this.deltaX = this.friction * this.deltaX * -1; <br>
+                    } <br>
+
+                    increaseAccel() { <br>
+                      ...
+                    // this.deltaX += 1; <br>
+                    } <br>
+
+                    moveInDyDir() { <br>
+                    // move token to postion after adding delta <br><br>
+                    this.token.changePosition([this.deltaX, this.deltaY]) <br><br>
+                    } <br><br>
+                    // bounce logic<br>
+                    bounce() {<br><br>
+                    this.token.render()<br><br>
+
+                    // change deltaX when between start pos + 10 and start pos + 30 <br><br>
+                    // this simulates slow in and slow out animation behavior <br><br>
+                    if (Math.abs(this.pos[0] - this.initialPos[0]) > 10 || Math.abs(this.pos[0] - this.initialPos[0]) < 30) { <br><br>
+                      this.deltaX=this.deltaX * (this.friction / .92) } <br><br>
+                    // move the token in dY direciton <br><br>
+                    this.moveInDyDir(); <br><br>
+                     // check to see if wall was hit <br><br>
+                     // wallHit() reutrns an arr of integers representing [left, top, bot, right walls] <br>
+                    const wallHit=this.wallHit();  <br><br>
+                    .... <br>
+                    // if hit left or right wall  <br><br>
+                    if (wallHit.includes(3) || wallHit.includes(4)) { this.reverseDeltaX(); } <br><br>
+                    // if no wall hit  <br><br>
+                    if (wallHit.length < 1) { this.increaseAccel();} <br><br>
+                   }<br>
+                  </code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Animation2 -->
+  <div class="animation2-container">
+    <div class="welcome-b-text">
+      <h2>Arc</h2>
+      <br>
+      <p>
+        Most natural action tends to follow an arched trajectory, and animation should <br>
+        adhere to this principle by following implied "arcs" for greater realism. <br>
+      </p>
+      <p>
+        As an object's speed or momentum increases, arcs tend to flatten out in moving <br>
+        ahead and broaden in turns. An object in motion that moves out of its natural arc<br>
+        will appear erratic rather than fluid.
+      </p>
+      <br>
+      <h5>
+        "We keep moving forward, opening new doors, and doing new things, because we're <br>
+        curious and curiosity keeps leading us down new paths." - Walt Disney
+      </h5>
+    </div>
+    <div class="flipcard">
+      <div class="card" id="fp02">
+        <div class="card-face frontface">
+          <div class=" hover-card-container" id="a2">
+            <canvas width="280" height="330" id="canvas3"></canvas>
+          </div>
+        </div>
+        <div class="card-face backface">
+          <code>Hello</code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Animation3 -->
+  <div class="animation3-container">
+    <div class="welcome-b-text">
+      <h2>Follow through and overlapping action</h2>
+      <br>
+      <p>
+        Follow through & overlapping action is a general heading for two closely<br>
+        related animation techniques which form part of the 12 basic principles <br>
+        of animation, identified by Frank Thomas and Ollie Johnston in their <br>
+        authoritative 1981 book on Disney Animation, The Illusion of Life.
+      </p>
+      <br>
+      <p>
+        When applied correctly, they help to render movement realistically, and<br>
+        help to give the impression that characters follow the laws of physics.
+      </p>
+      <br>
+      <h5>
+        "Things don't come to a stop all at once guys; first there's one part <br>
+        and then another" - Walt Disney
+      </h5>
+    </div>
+    <div class="hover-card-container" id="a3">
+      <canvas width="280" height="330" id="canvas4"></canvas>
+    </div>
+  </div>
+</body>
+
+</html>
