@@ -32,7 +32,7 @@ export class CanvasElement {
 
   reset() {
     this.elementContainer.classList = this.initalClasses;
-    // this.shape = this.setShape();
+    this.shape = this.setShape();
   };
 
   addClasses() {
