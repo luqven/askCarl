@@ -218,7 +218,7 @@
                      <span class="comment">...</span>
                       <span class="bracket">{</span> return true; <span class="bracket">}</span>;
                     <span class="bracket">}</span>;
-                  </code>
+          </code>
         </div>
       </div>
     </div>
@@ -226,27 +226,71 @@
   <!-- Animation3 -->
   <div class="animation3-container">
     <div class="welcome-b-text">
-      <h2>Follow through and overlapping action</h2>
+      <h2>Secondary action</h2>
       <br>
       <p>
-        Follow through & overlapping action is a general heading for two closely<br>
-        related animation techniques which form part of the 12 basic principles <br>
-        of animation, identified by Frank Thomas and Ollie Johnston in their <br>
-        authoritative 1981 book on Disney Animation, The Illusion of Life.
+        A person walking can simultaneously swing their arms, or whistle, or express <br>
+        emotions through facial expressions. Secondary actions emphasize rather than <br>
+        take attentionaway from the main action.
       </p>
       <br>
       <p>
-        When applied correctly, they help to render movement realistically, and<br>
-        help to give the impression that characters follow the laws of physics.
+        Adding secondary actions to the main action gives a scene more life. <br>
       </p>
       <br>
       <h5>
-        "Things don't come to a stop all at once guys; first there's one part <br>
-        and then another" - Walt Disney
+        "“First, think. Second, believe. Third, dream. And finally, dare." - Walt Disney
       </h5>
     </div>
-    <div class="hover-card-container" id="a3">
-      <canvas width="280" height="330" id="canvas4"></canvas>
+    <div class="flipcard">
+      <div class="card" id="fp03">
+        <div class="card-face frontface">
+          <div class=" hover-card-container" id="a3">
+            <canvas width="280" height="330" id="canvas4"></canvas>
+          </div>
+        </div>
+        <div class="card-face backface">
+          <code>
+                     <span class="comment">
+                        //////////////////////////////////////// <br>
+                        // wall collision logic <br>
+                        //////////////////////////////////////// <br>
+                     </span>
+                      hitWall() <span class="bracket">{</span> <br>
+                      <span class="let">let</span> <span class="variableName">startX</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 0<span class="bracket"> ]</span>; <br>
+                      <span class="let">let</span> <span class="variableName">startY</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 1<span class="bracket"> ]</span>; <br>
+                       <br>
+                      <span class="let">let</span> <span class="variableName">topLeft</span> = <span class="this">this</span>.pos; <br>
+                      <span class="let">let</span> <span class="variableName">topRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width, <span class="variableName">startY</span><span class="bracket"> ]</span>; <br>
+                      <span class="let">let</span> <span class="variableName">botLeft</span> =  <span class="bracket">[</span> <span class="variableName">startX</span>, <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
+                      <span class="let">let</span> <span class="variableName">botRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width , <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
+                      <span class="comment">// wallIndexes = <span class="bracket">[</span>1, 3<span class="bracket">]</span> // <span class="bracket">[</span> top
+                      / bottm, left / right<span class="bracket">]</span> <br></span>
+                      <span class="let">let</span> <span class="variableName">hitWalls</span> =  <span class="bracket">[</span> <span class="bracket"> ]</span>; <br>
+                      // check all four corners against each wall <br>
+                       <br>
+                      <span class="if">if</span> (<span class="this">this.</span> hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span>
+                      <span class="variableName">hitWalls</span>.push(1);
+                      <span class="bracket">}</span>; <br>
+                      <span class="if">if</span> (<span class="this">this.</span> hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span> 
+                      <span class="variableName">hitWalls</span>.push(3);
+                      <span class="bracket">}</span>;
+                      return <span class="variableName">hitWalls</span>;
+                      <span class="bracket">}</span> <br>
+                       <br>
+                      hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
+                        <span class="comment">...</span>
+                        return true;
+                        <span class="bracket">}</span>;
+                        <span class="bracket">}</span>;
+                       <br>
+                        hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
+                         <span class="comment">...</span>
+                          <span class="bracket">{</span> return true; <span class="bracket">}</span>;
+                        <span class="bracket">}</span>;
+              </code>
+        </div>
+      </div>
     </div>
   </div>
 </body>
