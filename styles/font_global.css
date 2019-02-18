@@ -20,6 +20,10 @@ html * {
   color: blueviolet;
 }
 
-.comment{
-  color: rgb(79, 94, 79);
+.let, .if {
+  color: crimson;
+}
+
+.comment, .comment span{
+  color: rgb(79, 94, 79) !important;
 }

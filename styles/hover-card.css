@@ -1,7 +1,7 @@
 /* animatable hover initial state */
 .hover-card-container {
     display: flex;
-    width: 308px;
+    width: 285px;
     height: 418px;
     margin: auto;
     box-sizing: border-box;
@@ -17,7 +17,7 @@
     content: '';
     position: absolute;
     z-index: -1;
-    width: 308px;
+    width: 285px;
     height: 418px;
     opacity: 0;
     border-radius: 5px;
@@ -30,7 +30,6 @@
     transform: scale(1.1, 1.1);
 }
 /* change the opacity of the hidden psudo element */
-
 .hover-card-container.hovered::after {
     opacity: 1;
 }

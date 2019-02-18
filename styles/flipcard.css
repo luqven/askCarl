@@ -6,7 +6,7 @@
     box-sizing: border-box;
     box-shadow: 0 1px 2px rgba(156, 156, 156, 0.15);
     transition: all 0.3s ease-in-out;
-    width: 308px;
+    width: 285px;
     height: 418px;
     perspective: 600px;
 }
@@ -46,6 +46,8 @@
     transform: rotateX(-180deg);
     display: flex;
     font-size: smaller;
+    width: 285px;
+    height: 438px;
 
 }
 /* rotate when is-flipped class present */

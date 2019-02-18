@@ -8,7 +8,7 @@ console.log('webpack is running...')
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // shim layer with setTimeout fallback by  Paul Irish
+  // shim layer with setTimeout fallback based on work by Paul Irish
   window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
       window.webkitRequestAnimationFrame ||
@@ -24,10 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const canvas2 = document.getElementById('canvas2');
   const canvas3 = document.getElementById('canvas3');
 
+  const flipcard0 = document.getElementById('fp00');
   const flipCard1 = document.getElementById('fp01');
   const flipcard2 = document.getElementById('fp02');
 
-  const cards = [flipCard1, flipcard2];
+  const cards = [flipcard0, flipCard1, flipcard2];
   const cardEvents = new CardEvents(cards);
 
 
