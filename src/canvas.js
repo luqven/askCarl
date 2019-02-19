@@ -3,6 +3,7 @@ import Shapes from "./shapes";
 export const SQUARE = 'SQUARE';
 export const CIRCLE = 'CIRCLE';
 export const SQUASH = 'SQUASH';
+export const SQUARE2 = 'SQUARE2';
 
 export class CanvasElement {
   // canvasObject = { target: canvasEle, loc: [yOffsetMin, yOffsetMax], shape: 'shape', container: 'id' }
@@ -27,6 +28,9 @@ export class CanvasElement {
     // }
     if (this.shapeType === SQUASH) {
       this.shape = Shapes(this.target, 'bounce').squash;
+    }
+    if (this.shapeType === SQUARE2) {
+      this.shape = Shapes(this.target, 'bounce').secondary
     }
   }
 

@@ -34,6 +34,7 @@ const Shapes = (canvas, animationType) =>  {
     deltaX: 20, // horizontal delta
     deltaY: 2, // verticle delta
   }
+
   const squashAndStretchDefalts = {
     shape: shapes[0], // squaere
     color: colors[3],
@@ -45,6 +46,19 @@ const Shapes = (canvas, animationType) =>  {
     type: animationType,
     deltaX: 2.9 * Math.PI, // horizontal delta
     deltaY: -13.9, // verticle delta
+  }
+
+  const secondSquareDefault = {
+    shape: shapes[0], // squaere
+    color: colors[2],
+    dimensions: [tokenWidth, tokenWidth, tokenWidth / 2], // [width, height, radius]
+    position: [ 10, canvas.height - 170],  // [xStartPos - 1/2 * width, yStartPos - 1/2 * height]
+    // walls: [0, canvas.height, 0, canvas.width],  // [topW, botW, leftW, rightW]
+    walls: [[0, 0], [0, canvas.height + 10],[0, 0], [canvas.width, 0]],  // [topW, botW, leftW, rightW]
+    ctx: canvas.getContext('2d'),
+    type: animationType,
+    deltaX: 0, // horizontal delta
+    deltaY: 0, // verticle delta
   }
 
   return {
@@ -59,9 +73,14 @@ const Shapes = (canvas, animationType) =>  {
     squash: new movingObject({
       token: new Token(squashAndStretchDefalts)
     }),
+
+    secondary: new movingObject({
+      token: new Token(secondSquareDefault)
+    }),
     circleDeafault: circleDefaults,
     squareDefault: squareDefaults,
     squashDefault: squashAndStretchDefalts,
+    secondSquareDefault: secondSquareDefault,
   }
 }
 
