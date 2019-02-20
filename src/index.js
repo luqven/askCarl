@@ -49,14 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // animation02 shapes
   let squash = new CanvasElement({
     target: canvas3,
-    location: [801, 1130],
+    location: [801, 1200],
     shapeType: SQUASH,
     container: 'a2',
   })
   // animation03 shapes
   let square2 = new CanvasElement({
     target: canvas4,
-    location: [1131, 1600],
+    location: [1201, 1900],
     shapeType: SQUARE2,
     container: 'a3',
   })

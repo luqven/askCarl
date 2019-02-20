@@ -8,7 +8,6 @@ class movingObject {
     this.botWall   = props.token.walls[1];
     this.leftWAll  = props.token.walls[2];
     this.rightWall = props.token.walls[3];
-    // this.inflectionPoint = 250;
     // initial token position and dimensions
     this.pos          = this.token.position;   // [xPos, yPos]
     this.initialPos   = this.pos.slice(0);     // stored for reference when needed
@@ -22,8 +21,8 @@ class movingObject {
     this.deltaR       = this.deltaY / 900;
     this.acceleration = 10;
     this.friction     = .889;
-    this.thresholdY   = 0.009   // stop animation at this speed
-    this.thresholdX   = 0.11    // stop animation at this speed
+    this.thresholdY   = 0.4   // stop animation at this speed
+    this.thresholdX   = 0.4    // stop animation at this speed
     this.ended        = false;  // true when delta ~= 0;
     // bind functions
     this.bounce        = this.bounce.bind(this);
@@ -34,8 +33,6 @@ class movingObject {
     this.reverseDeltaX = this.reverseDeltaX.bind(this);
     
     this.hitWall = this.hitWall.bind(this);
-    this.hitHorizWall  = this.hitHorizWall.bind(this);
-    this.hitVertWall   = this.hitVertWall.bind(this);
     this.distanceBetween  = this.distanceBetween.bind(this);
     
   }
@@ -50,32 +47,39 @@ class movingObject {
     } else {
       this.midPoint = this.pos;
     };
-    // gew the coordinates of shapes 4 corners
-    let startX = this.pos[0];
-    let startY = this.pos[1];
-    let topLeft  = this.pos;
-    let topRight = [startX + this.width, startY];
-    let botLeft  = [startX, startY + this.height];
-    let botRight = [startX + this.width , startY + this.height]; 
-    // wallIndexes = [1, 3]  // [top / bottom, left / right]
+    // get the coordinates of shapes 4 corners
+    // let startX = this.pos[0];
+    // let startY = this.pos[1];
+    // let topLeft  = this.pos;
+    // let topRight = [startX + this.width, startY];
+    // let botLeft  = [startX, startY + this.height];
+    // let botRight = [startX + this.width , startY + this.height]; 
+    // wallIndexes = [0, 2]  // [top / bottom, left / right]
     let hitWalls = [];
     // for each wall
       // if midP +/- radius <=> wall -> wall hit
-      if( this.midPoint[0] - this.radius <= this.leftWAll[0] ||
-          this.midPoint[0] + this.radius >= this.rightWall[0] ) {
-            hitWalls.push(2);
+      if( this.midPoint[0] - this.radius <= this.leftWAll[0]){
+        hitWalls.push(2);
+        this.reverseDeltaX()
+      } else if (this.midPoint[0] + this.radius >= this.rightWall[0] ) {
+          hitWalls.push(2);
+        this.reverseDeltaX()
       }
-      if (this.midPoint[1] - this.radius <= this.topWall[1] ||
-          this.midPoint[1] + this.radius >= this.botWall[1]) {
+      if (this.midPoint[1] - this.radius <= this.topWall[1]) {
         hitWalls.push(0);
+        this.reverseDeltaY()
+      } else if (this.midPoint[1] + this.radius >= this.botWall[1]) {
+        hitWalls.push(0);
+        this.reverseDeltaY()
       }
-
+    if (hitWalls.length < 1) {
+      this.increaseAccel();
+    }
       // TODO: object collision detection
       // if (this.distanceBetween(this.midPoint, otherMidP) <= 0 ){
       //   debugger
       //     hitWalls.push(i);
       // }
-    return hitWalls;
   }
 
   distanceBetween(pos1, pos2) {
@@ -93,13 +97,15 @@ class movingObject {
 // token delta change logic
 ////////////////////////////////////////
   growToken() {
-    // 
     this.token.setRadius(this.radius * this.deltaR)
   }
 
   reverseDeltaY(){
     // reverse vertical delta direction
+    debugger
     this.deltaY =  this.friction * this.deltaY * -1;
+    if (this.botWall[1] - this.deltaY < this.pos[1]) {this.deltaY = this.botWall[1] - this.pos[1]}
+    debugger
   }
 
   reverseDeltaX(){
@@ -109,8 +115,6 @@ class movingObject {
 
   increaseAccel() {
     this.deltaY += 1;
-    // this.deltaR = this.deltaY / 500;
-    // this.deltaX += 1;
   }
 
   moveInDyDir() {
@@ -134,7 +138,7 @@ class movingObject {
     // set end condition to true if deltas have reached thresholds
     if (Math.abs(this.deltaY ) < this.thresholdY &&
         Math.abs(this.deltaX) <= this.thresholdX) {
-      this.over = true
+        this.over = true
     };
 
     // check if render should end
@@ -145,19 +149,6 @@ class movingObject {
 
     // check to see if wall was hit
     const hitWall = this.hitWall();
-    // 
-    // if hit bottom or top wall
-    if (hitWall.includes(0)) {
-      this.reverseDeltaY();
-    }
-    // if hit left or right wall
-    if (hitWall.includes(2)) {
-      this.reverseDeltaX();
-    } 
-    // if no wall hit
-    if (hitWall.length < 1) {
-      this.increaseAccel();
-    }
   }
 
 ////////////////////////////////////////
