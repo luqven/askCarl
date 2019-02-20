@@ -24,7 +24,7 @@ class movingObject {
     this.deltaR       = this.deltaY / 900;
     this.acceleration = 10;
     this.friction     = .889;
-    this.velocity     = {x: this.deltaX, y: this.deltaY}
+    this.velocity     = {x: this.deltaX, y: this.deltaY};
     this.thresholdY   = 0.4    // stop animation at this speed
     this.thresholdX   = 0.4    // stop animation at this speed
     this.ended        = false; // true when delta ~= 0;
@@ -38,7 +38,7 @@ class movingObject {
     
     this.hitWall = this.hitWall.bind(this);
     
-  }
+  };
   
 ////////////////////////////////////////
 // wall collision logic
@@ -59,31 +59,31 @@ class movingObject {
     // let botRight = [startX + this.width , startY + this.height]; 
     // wallIndexes = [0, 2]  // [top / bottom, left / right]
     let hitWalls = [];
-    // for each wall
-      // if midP +/- radius <=> wall -> wall hit
-      if( this.midPoint[0] - this.radius <= this.leftWAll[0]){
-        hitWalls.push(2);
-        this.reverseDeltaX()
-      } else if (this.midPoint[0] + this.radius >= this.rightWall[0] ) {
-          hitWalls.push(2);
-        this.reverseDeltaX()
-      }
-      if (this.midPoint[1] - this.radius <= this.topWall[1]) {
-        hitWalls.push(0);
-        this.reverseDeltaY()
-      } else if (this.midPoint[1] + this.radius >= this.botWall[1]) {
-        hitWalls.push(0);
-        this.reverseDeltaY()
-      }
+    // if midP +/- radius <=> wall -> wall hit
+    if( this.midPoint[0] - this.radius <= this.leftWAll[0]){
+      hitWalls.push(2);
+      this.reverseDeltaX();
+    } else if (this.midPoint[0] + this.radius >= this.rightWall[0] ) {
+      hitWalls.push(2);
+      this.reverseDeltaX();
+    };
+    if (this.midPoint[1] - this.radius <= this.topWall[1]) {
+      hitWalls.push(0);
+      this.reverseDeltaY();
+    } else if (this.midPoint[1] + this.radius >= this.botWall[1]) {
+      hitWalls.push(0);
+      this.reverseDeltaY();
+    };
     if (hitWalls.length < 1) {
       this.increaseAccel();
-    }
+    };
+  };
+
       // TODO: object collision detection
-      // if (this.distanceBetween(this.midPoint, otherMidP) <= 0 ){
-      //   debugger
-      //     hitWalls.push(i);
-      // }
-  }
+    // if (this.distanceBetween(this.midPoint, otherMidP) <= 0 ){
+    //   debugger
+    //     hitWalls.push(i);
+    // }
 
 
 ////////////////////////////////////////
@@ -91,27 +91,27 @@ class movingObject {
 ////////////////////////////////////////
   growToken() {
     this.token.setRadius(this.radius * this.deltaR)
-  }
+  };
 
   reverseDeltaY(){
     // reverse vertical delta direction
     this.deltaY =  this.friction * this.deltaY * -1;
     debugger
-  }
+  };
 
   reverseDeltaX(){
     // reverse vertical delta direction
     this.deltaX =  this.friction * this.deltaX * -1;
-  }
+  };
 
   increaseAccel() {
     this.deltaY += 1;
-  }
+  };
 
   moveInDyDir() {
     // move token to position after adding delta
     this.token.changePosition([this.deltaX, this.deltaY])
-  }
+  };
 
 ////////////////////////////////////////
 // collision and delta change handlers
@@ -124,7 +124,7 @@ class movingObject {
     if (Math.abs(this.pos[0] - this.initialPos[0]) > 10 ||
         Math.abs(this.pos[0] - this.initialPos[0]) < 30) {
       this.deltaX = this.deltaX * (this.friction / .92)
-    }
+    };
 
     // set end condition to true if deltas have reached thresholds
     if (Math.abs(this.deltaY ) < this.thresholdY &&
@@ -140,7 +140,7 @@ class movingObject {
 
     // check to see if wall was hit
     const hitWall = this.hitWall();
-  }
+  };
 
 ////////////////////////////////////////
 // render logic
@@ -150,8 +150,8 @@ class movingObject {
     this.token.render();
     if(this.token.type === 'bounce') {
        this.animate(); 
-      }
-  }
-}
+      };
+  };
+};
 
 export default movingObject;
