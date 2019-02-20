@@ -41,7 +41,7 @@ const Shapes = (canvas, animationType) =>  {
     walls: [[0, 0], [0, canvas.height - 1], [0, 0], [canvas.width, 0]],  // [topW, botW, leftW, rightW]
     ctx: canvas.getContext('2d'),
     type: animationType,
-    deltaX: 5, // horizontal delta
+    deltaX: 9, // horizontal delta
     deltaY: -17,  // vertical delta
   }
 
