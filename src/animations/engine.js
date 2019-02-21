@@ -44,7 +44,6 @@ class movingObject {
 // wall collision logic
 ////////////////////////////////////////
   hitWall() {
-    debugger
     if (this.token.type != "circle") {
       //  get coordinates of the center of the shape
       this.midPoint = [Math.round(this.pos[0] + this.width / 2), Math.round(this.pos[1] + this.height / 2)];
@@ -78,7 +77,6 @@ class movingObject {
     if (hitWalls.length < 1) {
       this.increaseAccel();
     };
-    debugger
   };
 
       // TODO: object collision detection
@@ -98,7 +96,6 @@ class movingObject {
   reverseDeltaY(){
     // reverse vertical delta direction
     this.deltaY =  this.friction * this.deltaY * -1;
-    debugger
   };
 
   reverseDeltaX(){

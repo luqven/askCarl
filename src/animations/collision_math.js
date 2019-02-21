@@ -84,11 +84,9 @@ export const getCollision = (token, otherToken) => {
 }
 
 export const distanceBetween = (pos1, pos2) => {
-  debugger
   let xDiff = Math.round(pos2[0]) - Math.round(pos1[0]);
   let yDiff = Math.round(pos2[1]) - Math.round(pos1[1]);
   // a**2 + b**2 === c**2
   let distance = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2))
-  debugger
   return distance;
 }

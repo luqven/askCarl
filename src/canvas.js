@@ -44,9 +44,9 @@ export class CanvasElement {
   };
 
   scrolledToElement(pageOffset){
-    if (  this.yOffsetMax - pageOffset === 1428.5 ||
-          this.yOffsetMax - pageOffset ===   2457 ||
-          this.yOffsetMax - pageOffset ===  3785.5) { 
+    if (  this.yOffsetMax - pageOffset === 1289 ||
+          this.yOffsetMax - pageOffset === 2178 ||
+          this.yOffsetMax - pageOffset === 3367) { 
             return true; }
     else { return false};
   }
