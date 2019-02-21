@@ -73,22 +73,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // render the shapes
   function draw() {
     window.requestAnimationFrame(draw)
-
-    if (square.scrolledToElement() ){
+    const pageOffset = document.getElementsByClassName("main onepage-wrapper")[0].getBoundingClientRect()["top"]
+    if (square.scrolledToElement(pageOffset) ){
       square.addClasses();
       square.render();
       squash.reset();
       square2.reset();
-    } else if (squash.scrolledToElement() ){
+    } else if (squash.scrolledToElement(pageOffset) ){
       squash.addClasses()
       squash.render();
       square.reset();
       square2.reset();
-    } else if (square2.scrolledToElement() ){
+    } else if (square2.scrolledToElement(pageOffset) ){
       squash.addClasses()
       square2.render();
       square.reset();
       squash.reset();
+    } else {
+      squash.reset();
+      square2.reset();
+      square.reset();
     }
   };
   window.requestAnimationFrame(draw);

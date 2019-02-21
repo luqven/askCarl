@@ -15,7 +15,7 @@ export class CanvasElement {
     this.shapeType = canvasObject.shapeType;
     this.shape = this.setShape();
     this.newClasses = "hovered";
-    this.initalClasses = "hover-card-container"
+    this.initalClasses = "hover-card-container"; 
   };
 
   setShape() {
@@ -43,8 +43,12 @@ export class CanvasElement {
     this.elementContainer.classList.add(this.newClasses);
   };
 
-  scrolledToElement(){
-    return (window.pageYOffset >= this.yOffsetMin && window.pageYOffset <= this.yOffsetMax);
+  scrolledToElement(pageOffset){
+    if (  this.yOffsetMax - pageOffset === 1428.5 ||
+          this.yOffsetMax - pageOffset ===   2457 ||
+          this.yOffsetMax - pageOffset ===  3785.5) { 
+            return true; }
+    else { return false};
   }
 
   render() {

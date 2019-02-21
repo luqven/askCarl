@@ -78,7 +78,7 @@ function onePageScroll(element, options) {
   		pagination.innerHTML = paginationList;
   		var posTop = (document.querySelector(".onepage-pagination").offsetHeight / 2) * -1;
 			document.querySelector(".onepage-pagination").style.marginTop = posTop;
-			debugger
+			
   	}
     
   	if(window.location.hash != "" && window.location.hash != "#1") {
