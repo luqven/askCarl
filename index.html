@@ -46,14 +46,18 @@
         </div>
       </div>
       <!-- Animation0-->
-      <div class="welcome-banner-container div-padding">
+      <div class="welcome-banner-container">
         <div class="welcome-b-text">
           <h2>Welcome.</h2>
           <p>Carl knows a lot about making things come to life. <br>
             Follow him along as he teaches you a thing or two about
             how CSS <br> and JavaScript can help you do that!</p>
+            <span class="mouse">
+              <span class="scroll-btn">
+              </span>
+            </span>
+            <p style="text-align: center;">scroll me</p>
         </div>
-        <!-- <div class="hover-card-container" id="a0"> -->
         <div class="flipcard">
           <div class="card" id="fp00">
             <div class="card-face frontface">
@@ -80,7 +84,7 @@
     </section>
     <section style="background-color: #EA4335">
       <!-- Animation1 -->
-      <div class="animation1-container div-padding">
+      <div class="animation1-container">
         <div class="welcome-b-text">
           <h2>Follow through and overlapping action</h2>
           <br>
@@ -165,7 +169,7 @@
     </section>
     <section style="background-color: #FBBC05">
       <!-- Animation2 -->
-      <div class="animation2-container div-padding">
+      <div class="animation2-container">
         <div class="welcome-b-text">
           <h2>Arc</h2>
           <br>
@@ -238,7 +242,7 @@
     </section>
     <section style="background-color: #34A853">
       <!-- Animation3 -->
-      <div class="animation3-container div-padding">
+      <div class="animation3-container">
         <div class="welcome-b-text">
           <h2>Secondary action</h2>
           <br>
@@ -312,8 +316,11 @@
     <script>
       onePageScroll(".main", {
         sectionContainer: "section",
-        loop: true,
-        responsiveFallback: false
+        loop: false,
+        responsiveFallback: false,
+        pagination: true,
+        updateURL: true,
+        keyboard: true,
       });
 
     </script>
