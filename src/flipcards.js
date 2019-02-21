@@ -21,7 +21,7 @@ export default class CardEvents {
         // add a .5 second delay to prevent overlapping with mouseOver
         setTimeout(() => {
           curCard.classList.toggle("is-flipped")
-        }, 500);
+        }, 50);
       });
     });
   };

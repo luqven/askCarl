@@ -7,4 +7,10 @@
 @import url('./animation1.css');
 @import url('./animation2.css');
 @import url('./animation3.css');
-@import url('./hover-card.css')
+@import url('./hover-card.css');
+/* helpers */
+@import url("../src/onepage_scroll_helper/onepage-scroll.css");
+
+.div-padding{
+  padding-top: 25% !important;
+}

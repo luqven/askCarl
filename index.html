@@ -14,285 +14,309 @@
   <!-- Local Files -->
   <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css" />
   <script src="./dist/main.js"></script>
+  <script type="text/javascript" src="./src/onepage_scroll_helper/onepagescroll.js"></script>
 </head>
 
 <body>
-  <div class="menu-bar-container">
-    <header>
-      <i class="fas fa-dog"></i>
-      askCarl
-    </header>
-    <!-- Menu bar nav items -->
-    <div class="menu-bar-nav">
-      <ul>
-        <li>About</li>
-      </ul>
-    </div>
-    <!-- Animations drop down -->
-    <div class="animations-dd-container">
-      <p>Animations</p>
-      <ul class="dropdown hidden">
-        <li>Squash</li>
-      </ul>
-    </div>
-    <div class="menu-bar-shadow"></div>
-  </div>
-  <!-- Animation0-->
-  <div class="welcome-banner-container">
-    <div class="welcome-b-text">
-      <h2>Welcome.</h2>
-      <p>Carl knows a lot about making things come to life. <br>
-        Follow him along as he teaches you a thing or two about
-        how CSS <br> and JavaScript can help you do that!</p>
-    </div>
-    <!-- <div class="hover-card-container" id="a0"> -->
-    <div class="flipcard">
-      <div class="card" id="fp00">
-        <div class="card-face frontface">
-          <h2>Hover over me!</h2>
+  <!-- main contains all elements within body -->
+  <!-- this allows me to lock user scrolling using the onepage_scroll helper -->
+  <div class="main">
+    <!-- main stores each scroll position under section tags -->
+    <section style="background-color: #4285F4">
+      <div style="background-color: white;">
+        <div class="menu-bar-container">
+          <header>
+            <i class="fas fa-dog"></i>
+            askCarl
+          </header>
+          <!-- Menu bar nav items -->
+          <div class="menu-bar-nav">
+            <ul>
+              <li>About</li>
+            </ul>
+          </div>
+          <!-- Animations drop down -->
+          <div class="animations-dd-container">
+            <p>Animations</p>
+            <ul class="dropdown hidden">
+              <li>Squash</li>
+            </ul>
+          </div>
+          <div class="menu-bar-shadow"></div>
         </div>
-        <div class="card-face backface">
-          <code>
+      </div>
+      <!-- Animation0-->
+      <div class="welcome-banner-container div-padding">
+        <div class="welcome-b-text">
+          <h2>Welcome.</h2>
+          <p>Carl knows a lot about making things come to life. <br>
+            Follow him along as he teaches you a thing or two about
+            how CSS <br> and JavaScript can help you do that!</p>
+        </div>
+        <!-- <div class="hover-card-container" id="a0"> -->
+        <div class="flipcard">
+          <div class="card" id="fp00">
+            <div class="card-face frontface">
+              <h2>Hover over me!</h2>
+            </div>
+            <div class="card-face backface">
+              <code>
+      
+                          <span class="red">for</span> <span class="orange">animations</span> <span class="red">in</span> <span
+                            class="purple">webPage</span> <span class="red">do</span> |<span class="purple">hoverOverCard</span>| <br>
                         
-                <span class="red">for</span> <span class="orange">animations</span> <span class="red">in</span> <span
-                  class="purple">webPage</span> <span class="red">do</span> |<span class="purple">hoverOverCard</span>| <br>
-              
-                
-                  <span class="red">if</span> (animationIsInteresting) <span class="orange">{</span> <br>
-                      <span class="comment">"make sure to read relevant code!"</span>
-                    <br> <span class="orange">}</span>
-                  
-            <span class="red">end</span>
-          </code>
-        </div>
-      </div>
-    </div>
-    <!-- </div> -->
-  </div>
-  <!-- Animation1 -->
-  <div class="animation1-container">
-    <div class="welcome-b-text">
-      <h2>Follow through and overlapping action</h2>
-      <br>
-      <p>
-        Follow through & overlapping action is a general heading for two closely<br>
-        related animation techniques which form part of the 12 basic principles <br>
-        of animation, identified by Frank Thomas and Ollie Johnston in their <br>
-        authoritative 1981 book on Disney Animation, The Illusion of Life.
-      </p>
-      <br>
-      <p>
-        When applied correctly, they help to render movement realistically, and<br>
-        help to give the impression that characters follow the laws of physics.
-      </p>
-      <br>
-      <h5>
-        "Things don't come to a stop all at once guys; first there's one part <br>
-        and then another" - Walt Disney
-      </h5>
-    </div>
-    <div class="flipcard">
-      <div class="card" id="fp01">
-        <div class="card-face frontface">
-          <div class=" hover-card-container" id="a1">
-            <canvas width="280" height="330" id="canvas2"></canvas>
+                          
+                            <span class="red">if</span> (animationIsInteresting) <span class="orange">{</span> <br>
+                                <span class="comment">"make sure to read relevant code!"</span>
+                              <br> <span class="orange">}</span>
+                            
+                      <span class="red">end</span>
+                    </code>
+            </div>
           </div>
         </div>
-        <div class="card-face backface">
-          <code>
-            <span class="comment">
-              //////////////////////////////////////// <br>
-              // delta over time logic <br>
-              //////////////////////////////////////// <br>
-            </span> <br>
-                  <span class="bracket">{</span> ... <br>
-                    reverseDeltaX<span class="function">()</span> <span class="bracket">{</span> <br>
-                    <span class="comment">// reverse horizontal delta direction <br></span>
-                    <span class="this">this.</span> <span class="variableName"> deltaX</span> = <span class="this">this.</span> <span class="variableName"> friction</span> * <span class="this">this.</span> <span class="variableName"> deltaX</span> * -1; <br>
-                    <span class="bracket">}</span> <br>
-                    reverseDeltaY<span class="function">()</span> <span class="bracket">{</span> <br>
-                    <span class="comment">// reverse verticle delta direction <br></span>
-                    <span class="this">this.</span> <span class="variableName"> deltaY</span> = <span class="this">this.</span> <span class="variableName"> friction</span> * <span class="this">this.</span> <span class="variableName"> deltaY</span> * -1; <br>
-                    <span class="bracket">}</span> <br>
-
-                    increaseAccel<span class="function">()</span>  <span class="bracket">{</span> <br>
-                      ...
-                    <span class="comment">// <span class="this">this.</span> <span class="variableName"> deltaX</span> += 1; <br></span>
-                    <span class="bracket">}</span> <br>
-
-                    moveInDyDir<span class="function">()</span>  <span class="bracket">{</span> <br>
-                    <span class="comment">// move token to postion after adding delta <br><br></span>
-                    <span class="this">this.</span> <span class="variableName"> token</span>.changePosition([<span class="this">this.</span> <span class="variableName"> deltaX</span>, <span class="this">this.</span> <span class="variableName"> deltaY</span>]) <br><br>
-                    <span class="bracket">}</span> <br><br>
-                    <span class="comment">
-                      //////////////////////////////////////// <br>
-                      // bounce logic <br>
-                      //////////////////////////////////////// <br>
-                    </span> <br>
-                    bounce<span class="function">()</span>  <span class="bracket">{</span><br>
-                    <span class="this">this.</span> <span class="variableName"> token</span>.render<span class="function">()</span> <br>
-                    <span class="comment">// change deltaX when between start pos + 10 and start pos + 30 <br><br></span>
-                    <span class="comment">// this simulates slow in and slow out animation behavior <br><br></span>
-                    if (Math.abs(<span class="this">this.</span> <span class="variableName"> pos</span>[0] - <span class="this">this.</span> <span class="variableName"> initialPos</span>[0]) > 10 || Math.abs(<span class="this">this.</span> <span class="variableName"> pos</span>[0] - <span class="this">this.</span> <span class="variableName"> initialPos</span>[0]) < 30) <span class="bracket">{</span> <br>
-                        <span style="color: white">...</span> <span class="this">this.</span> <span class="variableName"> deltaX</span>=<span class="this">this.</span> <span class="variableName"> deltaX</span> * (<span class="this">this.</span> <span class="variableName"> friction</span> / .92) <br>
-                    <span class="bracket">}</span> <br><br>
-                    <span class="comment">// move the token in dY direciton <br><br></span>
-                    <span class="this">this.</span> <span class="variableName"> moveInDyDir</span><span class="function">()</span> ; <br><br>
-                     <span class="comment">// check to see if wall was hit <br><br></span>
-                     <span class="comment">// wallHit<span class="function">()</span>  reutrns an arr of integers representing [left, top, bot, right walls] <br></span>
-                    const wallHit=<span class="this">this.</span> <span class="variableName"> wallHit</span><span class="function">()</span> ;  <br><br>
-                    .... <br>
-                    <span class="comment">// if hit left or right wall  <br><br></span>
-                    if (wallHit.includes(3) || wallHit.includes(4)) <span class="bracket">{</span> <span class="this">this.</span> <span class="variableName"> reverseDeltaX</span><span class="function">()</span> ; <span class="bracket">}</span> <br><br>
-                    <span class="comment">// if no wall hit  <br><br></span>
-                    if (wallHit.length < 1) <span class="bracket">{</span> <span class="this">this.</span> <span class="variableName"> increaseAccel</span><span class="function">()</span> ;<span class="bracket">}</span> <br><br>
-                   <span class="bracket">}</span><br>
-                  </code>
-        </div>
+        <!-- </div> -->
       </div>
-    </div>
-  </div>
-  <!-- Animation2 -->
-  <div class="animation2-container">
-    <div class="welcome-b-text">
-      <h2>Arc</h2>
-      <br>
-      <p>
-        Most natural action tends to follow an arched trajectory, and animation should <br>
-        adhere to this principle by following implied "arcs" for greater realism. <br>
-      </p>
-      <p>
-        As an object's speed or momentum increases, arcs tend to flatten out in moving <br>
-        ahead and broaden in turns. An object in motion that moves out of its natural arc<br>
-        will appear erratic rather than fluid.
-      </p>
-      <br>
-      <h5>
-        "We keep moving forward, opening new doors, and doing new things, because we're <br>
-        curious and curiosity keeps leading us down new paths." - Walt Disney
-      </h5>
-    </div>
-    <div class="flipcard">
-      <div class="card" id="fp02">
-        <div class="card-face frontface">
-          <div class=" hover-card-container" id="a2">
-            <canvas width="280" height="330" id="canvas3"></canvas>
-          </div>
+    </section>
+    <section style="background-color: #EA4335">
+      <!-- Animation1 -->
+      <div class="animation1-container div-padding">
+        <div class="welcome-b-text">
+          <h2>Follow through and overlapping action</h2>
+          <br>
+          <p>
+            Follow through & overlapping action is a general heading for two closely<br>
+            related animation techniques which form part of the 12 basic principles <br>
+            of animation, identified by Frank Thomas and Ollie Johnston in their <br>
+            authoritative 1981 book on Disney Animation, The Illusion of Life.
+          </p>
+          <br>
+          <p>
+            When applied correctly, they help to render movement realistically, and<br>
+            help to give the impression that characters follow the laws of physics.
+          </p>
+          <br>
+          <h5>
+            "Things don't come to a stop all at once guys; first there's one part <br>
+            and then another" - Walt Disney
+          </h5>
         </div>
-        <div class="card-face backface">
-          <code>
-                 <span class="comment">
-                    //////////////////////////////////////// <br>
-                    // wall collision logic <br>
-                    //////////////////////////////////////// <br>
-                 </span>
-                  hitWall() <span class="bracket">{</span> <br>
-                  <span class="let">let</span> <span class="variableName">startX</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 0<span class="bracket"> ]</span>; <br>
-                  <span class="let">let</span> <span class="variableName">startY</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 1<span class="bracket"> ]</span>; <br>
-                   <br>
-                  <span class="let">let</span> <span class="variableName">topLeft</span> = <span class="this">this</span>.pos; <br>
-                  <span class="let">let</span> <span class="variableName">topRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width, <span class="variableName">startY</span><span class="bracket"> ]</span>; <br>
-                  <span class="let">let</span> <span class="variableName">botLeft</span> =  <span class="bracket">[</span> <span class="variableName">startX</span>, <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                  <span class="let">let</span> <span class="variableName">botRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width , <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                  <span class="comment">// wallIndexes = <span class="bracket">[</span>1, 3<span class="bracket">]</span> // <span class="bracket">[</span> top
-                  / bottm, left / right<span class="bracket">]</span> <br></span>
-                  <span class="let">let</span> <span class="variableName">hitWalls</span> =  <span class="bracket">[</span> <span class="bracket"> ]</span>; <br>
-                  // check all four corners against each wall <br>
-                   <br>
-                  <span class="if">if</span> (<span class="this">this.</span> hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span>
-                  <span class="variableName">hitWalls</span>.push(1);
-                  <span class="bracket">}</span>; <br>
-                  <span class="if">if</span> (<span class="this">this.</span> hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span> 
-                  <span class="variableName">hitWalls</span>.push(3);
-                  <span class="bracket">}</span>;
-                  return <span class="variableName">hitWalls</span>;
-                  <span class="bracket">}</span> <br>
-                   <br>
-                  hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                    <span class="comment">...</span>
-                    return true;
-                    <span class="bracket">}</span>;
-                    <span class="bracket">}</span>;
-                   <br>
-                    hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                     <span class="comment">...</span>
-                      <span class="bracket">{</span> return true; <span class="bracket">}</span>;
-                    <span class="bracket">}</span>;
-          </code>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Animation3 -->
-  <div class="animation3-container">
-    <div class="welcome-b-text">
-      <h2>Secondary action</h2>
-      <br>
-      <p>
-        A person walking can simultaneously swing their arms, or whistle, or express <br>
-        emotions through facial expressions. Secondary actions emphasize rather than <br>
-        take attentionaway from the main action.
-      </p>
-      <br>
-      <p>
-        Adding secondary actions to the main action gives a scene more life. <br>
-      </p>
-      <br>
-      <h5>
-        "“First, think. Second, believe. Third, dream. And finally, dare." - Walt Disney
-      </h5>
-    </div>
-    <div class="flipcard">
-      <div class="card" id="fp03">
-        <div class="card-face frontface">
-          <div class=" hover-card-container" id="a3">
-            <canvas width="280" height="330" id="canvas4"></canvas>
-          </div>
-        </div>
-        <div class="card-face backface">
-          <code>
-                     <span class="comment">
+        <div class="flipcard">
+          <div class="card" id="fp01">
+            <div class="card-face frontface">
+              <div class=" hover-card-container" id="a1">
+                <canvas width="280" height="330" id="canvas2"></canvas>
+              </div>
+            </div>
+            <div class="card-face backface">
+              <code>
+                      <span class="comment">
                         //////////////////////////////////////// <br>
-                        // wall collision logic <br>
+                        // delta over time logic <br>
                         //////////////////////////////////////// <br>
-                     </span>
-                      hitWall() <span class="bracket">{</span> <br>
-                      <span class="let">let</span> <span class="variableName">startX</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 0<span class="bracket"> ]</span>; <br>
-                      <span class="let">let</span> <span class="variableName">startY</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 1<span class="bracket"> ]</span>; <br>
-                       <br>
-                      <span class="let">let</span> <span class="variableName">topLeft</span> = <span class="this">this</span>.pos; <br>
-                      <span class="let">let</span> <span class="variableName">topRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width, <span class="variableName">startY</span><span class="bracket"> ]</span>; <br>
-                      <span class="let">let</span> <span class="variableName">botLeft</span> =  <span class="bracket">[</span> <span class="variableName">startX</span>, <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                      <span class="let">let</span> <span class="variableName">botRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width , <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                      <span class="comment">// wallIndexes = <span class="bracket">[</span>1, 3<span class="bracket">]</span> // <span class="bracket">[</span> top
-                      / bottm, left / right<span class="bracket">]</span> <br></span>
-                      <span class="let">let</span> <span class="variableName">hitWalls</span> =  <span class="bracket">[</span> <span class="bracket"> ]</span>; <br>
-                      // check all four corners against each wall <br>
-                       <br>
-                      <span class="if">if</span> (<span class="this">this.</span> hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span>
-                      <span class="variableName">hitWalls</span>.push(1);
-                      <span class="bracket">}</span>; <br>
-                      <span class="if">if</span> (<span class="this">this.</span> hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span> 
-                      <span class="variableName">hitWalls</span>.push(3);
-                      <span class="bracket">}</span>;
-                      return <span class="variableName">hitWalls</span>;
-                      <span class="bracket">}</span> <br>
-                       <br>
-                      hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                        <span class="comment">...</span>
-                        return true;
-                        <span class="bracket">}</span>;
-                        <span class="bracket">}</span>;
-                       <br>
-                        hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                         <span class="comment">...</span>
-                          <span class="bracket">{</span> return true; <span class="bracket">}</span>;
-                        <span class="bracket">}</span>;
-              </code>
+                      </span> <br>
+                            <span class="bracket">{</span> ... <br>
+                              reverseDeltaX<span class="function">()</span> <span class="bracket">{</span> <br>
+                              <span class="comment">// reverse horizontal delta direction <br></span>
+                              <span class="this">this.</span> <span class="variableName"> deltaX</span> = <span class="this">this.</span> <span class="variableName"> friction</span> * <span class="this">this.</span> <span class="variableName"> deltaX</span> * -1; <br>
+                              <span class="bracket">}</span> <br>
+                              reverseDeltaY<span class="function">()</span> <span class="bracket">{</span> <br>
+                              <span class="comment">// reverse verticle delta direction <br></span>
+                              <span class="this">this.</span> <span class="variableName"> deltaY</span> = <span class="this">this.</span> <span class="variableName"> friction</span> * <span class="this">this.</span> <span class="variableName"> deltaY</span> * -1; <br>
+                              <span class="bracket">}</span> <br>
+          
+                              increaseAccel<span class="function">()</span>  <span class="bracket">{</span> <br>
+                                ...
+                              <span class="comment">// <span class="this">this.</span> <span class="variableName"> deltaX</span> += 1; <br></span>
+                              <span class="bracket">}</span> <br>
+          
+                              moveInDyDir<span class="function">()</span>  <span class="bracket">{</span> <br>
+                              <span class="comment">// move token to postion after adding delta <br><br></span>
+                              <span class="this">this.</span> <span class="variableName"> token</span>.changePosition([<span class="this">this.</span> <span class="variableName"> deltaX</span>, <span class="this">this.</span> <span class="variableName"> deltaY</span>]) <br><br>
+                              <span class="bracket">}</span> <br><br>
+                              <span class="comment">
+                                //////////////////////////////////////// <br>
+                                // bounce logic <br>
+                                //////////////////////////////////////// <br>
+                              </span> <br>
+                              bounce<span class="function">()</span>  <span class="bracket">{</span><br>
+                              <span class="this">this.</span> <span class="variableName"> token</span>.render<span class="function">()</span> <br>
+                              <span class="comment">// change deltaX when between start pos + 10 and start pos + 30 <br><br></span>
+                              <span class="comment">// this simulates slow in and slow out animation behavior <br><br></span>
+                              if (Math.abs(<span class="this">this.</span> <span class="variableName"> pos</span>[0] - <span class="this">this.</span> <span class="variableName"> initialPos</span>[0]) > 10 || Math.abs(<span class="this">this.</span> <span class="variableName"> pos</span>[0] - <span class="this">this.</span> <span class="variableName"> initialPos</span>[0]) < 30) <span class="bracket">{</span> <br>
+                                  <span style="color: white">...</span> <span class="this">this.</span> <span class="variableName"> deltaX</span>=<span class="this">this.</span> <span class="variableName"> deltaX</span> * (<span class="this">this.</span> <span class="variableName"> friction</span> / .92) <br>
+                              <span class="bracket">}</span> <br><br>
+                              <span class="comment">// move the token in dY direciton <br><br></span>
+                              <span class="this">this.</span> <span class="variableName"> moveInDyDir</span><span class="function">()</span> ; <br><br>
+                               <span class="comment">// check to see if wall was hit <br><br></span>
+                               <span class="comment">// wallHit<span class="function">()</span>  reutrns an arr of integers representing [left, top, bot, right walls] <br></span>
+                              const wallHit=<span class="this">this.</span> <span class="variableName"> wallHit</span><span class="function">()</span> ;  <br><br>
+                              .... <br>
+                              <span class="comment">// if hit left or right wall  <br><br></span>
+                              if (wallHit.includes(3) || wallHit.includes(4)) <span class="bracket">{</span> <span class="this">this.</span> <span class="variableName"> reverseDeltaX</span><span class="function">()</span> ; <span class="bracket">}</span> <br><br>
+                              <span class="comment">// if no wall hit  <br><br></span>
+                              if (wallHit.length < 1) <span class="bracket">{</span> <span class="this">this.</span> <span class="variableName"> increaseAccel</span><span class="function">()</span> ;<span class="bracket">}</span> <br><br>
+                             <span class="bracket">}</span><br>
+                            </code>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+    <section style="background-color: #FBBC05">
+      <!-- Animation2 -->
+      <div class="animation2-container div-padding">
+        <div class="welcome-b-text">
+          <h2>Arc</h2>
+          <br>
+          <p>
+            Most natural action tends to follow an arched trajectory, and animation should <br>
+            adhere to this principle by following implied "arcs" for greater realism. <br>
+          </p>
+          <p>
+            As an object's speed or momentum increases, arcs tend to flatten out in moving <br>
+            ahead and broaden in turns. An object in motion that moves out of its natural arc<br>
+            will appear erratic rather than fluid.
+          </p>
+          <br>
+          <h5>
+            "We keep moving forward, opening new doors, and doing new things, because we're <br>
+            curious and curiosity keeps leading us down new paths." - Walt Disney
+          </h5>
+        </div>
+        <div class="flipcard">
+          <div class="card" id="fp02">
+            <div class="card-face frontface">
+              <div class=" hover-card-container" id="a2">
+                <canvas width="280" height="330" id="canvas3"></canvas>
+              </div>
+            </div>
+            <div class="card-face backface">
+              <code>
+                           <span class="comment">
+                              //////////////////////////////////////// <br>
+                              // wall collision logic <br>
+                              //////////////////////////////////////// <br>
+                           </span>
+                            hitWall() <span class="bracket">{</span> <br>
+                            <span class="let">let</span> <span class="variableName">startX</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 0<span class="bracket"> ]</span>; <br>
+                            <span class="let">let</span> <span class="variableName">startY</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 1<span class="bracket"> ]</span>; <br>
+                             <br>
+                            <span class="let">let</span> <span class="variableName">topLeft</span> = <span class="this">this</span>.pos; <br>
+                            <span class="let">let</span> <span class="variableName">topRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width, <span class="variableName">startY</span><span class="bracket"> ]</span>; <br>
+                            <span class="let">let</span> <span class="variableName">botLeft</span> =  <span class="bracket">[</span> <span class="variableName">startX</span>, <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
+                            <span class="let">let</span> <span class="variableName">botRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width , <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
+                            <span class="comment">// wallIndexes = <span class="bracket">[</span>1, 3<span class="bracket">]</span> // <span class="bracket">[</span> top
+                            / bottm, left / right<span class="bracket">]</span> <br></span>
+                            <span class="let">let</span> <span class="variableName">hitWalls</span> =  <span class="bracket">[</span> <span class="bracket"> ]</span>; <br>
+                            // check all four corners against each wall <br>
+                             <br>
+                            <span class="if">if</span> (<span class="this">this.</span> hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span>
+                            <span class="variableName">hitWalls</span>.push(1);
+                            <span class="bracket">}</span>; <br>
+                            <span class="if">if</span> (<span class="this">this.</span> hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span> 
+                            <span class="variableName">hitWalls</span>.push(3);
+                            <span class="bracket">}</span>;
+                            return <span class="variableName">hitWalls</span>;
+                            <span class="bracket">}</span> <br>
+                             <br>
+                            hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
+                              <span class="comment">...</span>
+                              return true;
+                              <span class="bracket">}</span>;
+                              <span class="bracket">}</span>;
+                             <br>
+                              hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
+                               <span class="comment">...</span>
+                                <span class="bracket">{</span> return true; <span class="bracket">}</span>;
+                              <span class="bracket">}</span>;
+                    </code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="background-color: #34A853">
+      <!-- Animation3 -->
+      <div class="animation3-container div-padding">
+        <div class="welcome-b-text">
+          <h2>Secondary action</h2>
+          <br>
+          <p>
+            A person walking can simultaneously swing their arms, or whistle, or express <br>
+            emotions through facial expressions. Secondary actions emphasize rather than <br>
+            take attentionaway from the main action.
+          </p>
+          <br>
+          <p>
+            Adding secondary actions to the main action gives a scene more life. <br>
+          </p>
+          <br>
+          <h5>
+            "“First, think. Second, believe. Third, dream. And finally, dare." - Walt Disney
+          </h5>
+        </div>
+        <div class="flipcard">
+          <div class="card" id="fp03">
+            <div class="card-face frontface">
+              <div class=" hover-card-container" id="a3">
+                <canvas width="280" height="330" id="canvas4"></canvas>
+              </div>
+            </div>
+            <div class="card-face backface">
+              <code>
+                               <span class="comment">
+                                  //////////////////////////////////////// <br>
+                                  // wall collision logic <br>
+                                  //////////////////////////////////////// <br>
+                               </span>
+                                hitWall() <span class="bracket">{</span> <br>
+                                <span class="let">let</span> <span class="variableName">startX</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 0<span class="bracket"> ]</span>; <br>
+                                <span class="let">let</span> <span class="variableName">startY</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 1<span class="bracket"> ]</span>; <br>
+                                 <br>
+                                <span class="let">let</span> <span class="variableName">topLeft</span> = <span class="this">this</span>.pos; <br>
+                                <span class="let">let</span> <span class="variableName">topRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width, <span class="variableName">startY</span><span class="bracket"> ]</span>; <br>
+                                <span class="let">let</span> <span class="variableName">botLeft</span> =  <span class="bracket">[</span> <span class="variableName">startX</span>, <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
+                                <span class="let">let</span> <span class="variableName">botRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width , <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
+                                <span class="comment">// wallIndexes = <span class="bracket">[</span>1, 3<span class="bracket">]</span> // <span class="bracket">[</span> top
+                                / bottm, left / right<span class="bracket">]</span> <br></span>
+                                <span class="let">let</span> <span class="variableName">hitWalls</span> =  <span class="bracket">[</span> <span class="bracket"> ]</span>; <br>
+                                // check all four corners against each wall <br>
+                                 <br>
+                                <span class="if">if</span> (<span class="this">this.</span> hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span>
+                                <span class="variableName">hitWalls</span>.push(1);
+                                <span class="bracket">}</span>; <br>
+                                <span class="if">if</span> (<span class="this">this.</span> hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span> 
+                                <span class="variableName">hitWalls</span>.push(3);
+                                <span class="bracket">}</span>;
+                                return <span class="variableName">hitWalls</span>;
+                                <span class="bracket">}</span> <br>
+                                 <br>
+                                hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
+                                  <span class="comment">...</span>
+                                  return true;
+                                  <span class="bracket">}</span>;
+                                  <span class="bracket">}</span>;
+                                 <br>
+                                  hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
+                                   <span class="comment">...</span>
+                                    <span class="bracket">{</span> return true; <span class="bracket">}</span>;
+                                  <span class="bracket">}</span>;
+                        </code>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <script>
+      onePageScroll(".main", {
+        sectionContainer: "section",
+        loop: true,
+        responsiveFallback: false
+      });
+
+    </script>
 </body>
 
 </html>

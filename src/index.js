@@ -3,10 +3,12 @@ import Util from "./util";
 import Shapes from "./shapes";
 import CardEvents from "./flipcards";
 import { CanvasElement, CIRCLE, SQUARE, SQUARE2, SQUASH } from './canvas';
-console.log('webpack is running...')
 
+// helper scroll library
+import {onePageScroll} from "./onepage_scroll_helper/onepagescroll";
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log('webpack is running...')
 
   // shim layer with setTimeout fallback based on work by Paul Irish
   window.requestAnimFrame = (function () {
