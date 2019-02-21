@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // add event listeners to cards
-  cardEvents.mouseEnter();
+  cardEvents.mouseOver();
   cardEvents.mouseLeave();
 
   // set shapes to render
