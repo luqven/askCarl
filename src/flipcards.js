@@ -6,23 +6,11 @@ export default class CardEvents {
     this.cards = cards;
   }
 
-  mouseOver(){
+  mouseClick(){
     this.cards.forEach(card => {
-      card.addEventListener("mouseover", () => {
-        card.classList.toggle("is-flipped", true)
+      card.addEventListener("click", () => {
+        card.classList.toggle("is-flipped")
       })
-    });
-  };
-  
-  mouseLeave(){
-    this.cards.forEach(card => {
-      const curCard = card;
-      curCard.addEventListener("mouseleave", () => {
-        // add a .5 second delay to prevent overlapping with mouseOver
-        setTimeout(() => {
-          curCard.classList.toggle("is-flipped")
-        }, 50);
-      });
     });
   };
 

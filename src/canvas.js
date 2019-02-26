@@ -1,59 +1,57 @@
-import Shapes from "./shapes";
+export default class Canvas {
+  constructor(props) {
+    this.render    = true;
+    this.canvas    = props.canvas
+    this.ctx       = props.canvas.getContext("2d")
+    this.container = props.container // the canvas's container div or section in the html
+    this.width     = this.container.offsetWidth
+    this.height    = this.container.offsetHeight
+    this.x = 0
+    this.y = 0
+    this.mousePos = {
+      x: this.container.innerWidth / 2,
+      y: this.container.innerHeight / 2
+    }
+    this.colors = { red: "red", blue: "blue", green: "green", yellow: "yellow" }
+    this.canvasDidMount = false
 
-export const SQUARE = 'SQUARE';
-export const CIRCLE = 'CIRCLE';
-export const SQUASH = 'SQUASH';
-export const SQUARE2 = 'SQUARE2';
-
-export class CanvasElement {
-  // canvasObject = { target: canvasEle, loc: [yOffsetMin, yOffsetMax], shape: 'shape', container: 'id' }
-  constructor(canvasObject) {
-    this.target= canvasObject.target;
-    this.elementContainer = document.getElementById(canvasObject.container);
-    this.yOffsetMin = canvasObject.location[0];
-    this.yOffsetMax = canvasObject.location[1];
-    this.shapeType = canvasObject.shapeType;
-    this.shape = this.setShape();
-    this.newClasses = "hovered";
-    this.initalClasses = "hover-card-container"; 
+    this.resize = this.resize.bind(this)
+    this.draw = this.draw.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this)
+    this.onCanvasDidMount = this.onCanvasDidMount.bind(this)
+  }
+  // change cursor pos when mouse moves over canvas container
+  onMouseMove() {
+    this.container.addEventListener('mousemove', e => {
+      debugger
+      this.mousePos.x = e.clientX
+      this.mousePos.y = e.clientY
+    })
   };
-
-  setShape() {
-    // debugger
-    if (this.shapeType === SQUARE ) {
-      this.shape = Shapes(this.target, 'bounce').square
-    }
-    // if (this.shapeType === CIRCLE){
-    //   this.shape = Shapes(this.target, 'bounce').circle
-    // }
-    if (this.shapeType === SQUASH) {
-      this.shape = Shapes(this.target, 'bounce').squash;
-    }
-    if (this.shapeType === SQUARE2) {
-      this.shape = Shapes(this.target, 'bounce').secondary
-    }
+  // resize the canvas when it's container resizes
+  resize() {
+    this.container.addEventListener('resize',() => {
+      this.width = innerWidth
+      this.height = innerHeight
+    })
+  };
+  // returns bool that determines if scrolled to current canvas
+  scrolledTo(pageOffset){
+    if (pageOffset < -300 && pageOffset > -600) {return true}
+  }
+  // on first render, add event listeners
+  onCanvasDidMount() {
+    this.onMouseMove()
+    this.resize()
   }
 
-  reset() {
-    this.elementContainer.classList = this.initalClasses;
-    this.shape = this.setShape();
-  };
-
-  addClasses() {
-    this.elementContainer.classList.add(this.newClasses);
-  };
-
-  scrolledToElement(pageOffset){
-    if (  this.yOffsetMax - pageOffset === 1289 ||
-          this.yOffsetMax - pageOffset === 2178 ||
-          this.yOffsetMax - pageOffset === 3367) { 
-            return true; }
-    else { return false};
+  draw() {
+    if (this.render === false) {return}
+    if (this.canvasDidMount === false) {
+      this.canvasDidMount = true;
+      this.onCanvasDidMount()
+    }
+    // requestAnimationFrame(render) -- disabled since this is handled in index.js
+    this.ctx.clearRect(0, 0, this.width, this.height)
   }
-
-  render() {
-    if (this.shape === undefined) { this.setShape(); }
-    this.target.getContext('2d').clearRect(0, 0, this.target.width, this.target.height);
-    this.shape.render();
-  };
-};
+}

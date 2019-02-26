@@ -1,26 +1,26 @@
 import Util from "../util";
 
-class movingObject {
+export default class Engine {
   constructor(props) {
-    this.token     = props.token;
-    this.allTokens = props.allTokens;
-    // token wall locations
-    this.topWall   = props.token.walls[0];
-    this.botWall   = props.token.walls[1];
-    this.leftWAll  = props.token.walls[2];
-    this.rightWall = props.token.walls[3];
-    // initial token position and dimensions
-    this.pos          = this.token.position;   // [xPos, yPos]
-    this.x            = this.pos[0];
-    this.y            = this.pos[1];
-    this.initialPos   = this.pos.slice(0);     // stored for reference when needed
-    this.dimensions   = this.token.dimensions; // [w, h, r] 
-    this.radius       = this.token.dimensions[2];
-    this.height       = this.token.dimensions[1];
-    this.width        = this.dimensions[0];
+    this.shape     = props.shape;
+    this.allShapes = props.allShapes;
+    this.canvas    = props.canvas
+    // shape wall locations
+    this.topWall   = [0, this.canvas.y];
+    this.botWall   = [0, this.canvas.height - 65];
+    this.leftWAll  = [this.canvas.x, 0];
+    this.rightWall = [this.canvas.width, 0];
+    // initial shape position and dimensions
+    this.x            = this.shape.x;
+    this.y            = this.shape.y;
+    this.pos          = [this.shape.x, this.shape.y]
+    this.initialPos   = [this.shape.x, this.shape.y].slice(0);     // stored for reference when needed
+    this.radius       = this.shape.radius
+    this.height       = this.shape.height
+    this.width        = this.shape.width
     // start delta, acceleration, friction, and threshold values
-    this.deltaY       = props.token.deltaY;
-    this.deltaX       = props.token.deltaX;
+    this.deltaY       = this.shape.deltaY;
+    this.deltaX       = this.shape.deltaX;
     this.deltaR       = this.deltaY / 900;
     this.acceleration = 10;
     this.friction     = .889;
@@ -29,8 +29,8 @@ class movingObject {
     this.thresholdX   = 0.4    // stop animation at this speed
     this.ended        = false; // true when delta ~= 0;
     // bind functions
-    this.animate        = this.animate.bind(this);
-    this.growToken     = this.growToken.bind(this);
+    this.animate       = this.animate.bind(this);
+    this.growShape     = this.growShape.bind(this);
     this.moveInDyDir   = this.moveInDyDir.bind(this);
     this.increaseAccel = this.increaseAccel.bind(this);
     this.reverseDeltaY = this.reverseDeltaY.bind(this);
@@ -44,7 +44,8 @@ class movingObject {
 // wall collision logic
 ////////////////////////////////////////
   hitWall() {
-    if (this.token.type != "circle") {
+    debugger
+    if (this.shape.type != "circle") {
       //  get coordinates of the center of the shape
       this.midPoint = [Math.round(this.pos[0] + this.width / 2), Math.round(this.pos[1] + this.height / 2)];
     } else {
@@ -77,6 +78,7 @@ class movingObject {
     if (hitWalls.length < 1) {
       this.increaseAccel();
     };
+    debugger
   };
 
       // TODO: object collision detection
@@ -87,10 +89,10 @@ class movingObject {
 
 
 ////////////////////////////////////////
-// token delta change logic
+// shape delta change logic
 ////////////////////////////////////////
-  growToken() {
-    this.token.setRadius(this.radius * this.deltaR)
+  growShape() {
+    this.shape.setDims(0, 0, this.radius * this.deltaR)
   };
 
   reverseDeltaY(){
@@ -108,15 +110,18 @@ class movingObject {
   };
 
   moveInDyDir() {
-    // move token to position after adding delta
-    this.token.changePosition([this.deltaX, this.deltaY])
+    debugger
+    // move shape to position after adding delta
+    this.shape.changePosition([this.deltaX, this.deltaY])
+    this.pos = this.shape.getPosition()
   };
 
 ////////////////////////////////////////
 // collision and delta change handlers
 ////////////////////////////////////////
   animate() {
-    this.token.render()
+    this.canvas.draw()
+    this.shape.render()
 
     // change deltaX when between start pos + 10 and  start pos + 30
     // this simulates slow in and slow out animation behavior
@@ -134,7 +139,7 @@ class movingObject {
     // check if render should end
     // if (this.over) { return null}
 
-    // move the token in dY direction
+    // move the shape in dY direction
     this.moveInDyDir();
 
     // check to see if wall was hit
@@ -145,12 +150,10 @@ class movingObject {
 // render logic
 ////////////////////////////////////////
   render(){
-    // console.log(this.token.dimensions);
-    this.token.render();
-    if(this.token.type === 'bounce') {
+    // console.log(this.shape.dimensions);
+    // this.shape.render();
+    // if(this.shape.type === 'bounce') {
        this.animate(); 
-      };
+      // };
   };
 };
-
-export default movingObject;

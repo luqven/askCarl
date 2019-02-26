@@ -1,99 +1,65 @@
 // index JS file
 import Util from "./util";
-import Shapes from "./shapes";
+import Canvas from './canvas';
+import {MovingObject} from "./moving_object";
 import CardEvents from "./flipcards";
-import { CanvasElement, CIRCLE, SQUARE, SQUARE2, SQUASH } from './canvas';
-
+import Engine from "./animations/engine"
 // helper scroll library
 import {onePageScroll} from "./onepage_scroll_helper/onepagescroll";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log('webpack is running...')
-
-  // shim layer with setTimeout fallback based on work by Paul Irish
-  window.requestAnimFrame = (function () {
-    return window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function (callback) {
-        window.setTimeout(callback, 1000 / 60);
-      };
-  })();
   console.log("DOM fully loaded and parsed");
+  window.requestAnimFrame = Util.requestAnimFrame;
 
-  const canvas2 = document.getElementById('canvas2');
-  const canvas3 = document.getElementById('canvas3');
-  const canvas4 = document.getElementById('canvas4');
-
+  // store the canvases
+  const canvas1 = new Canvas({
+    canvas: document.getElementById("canvas2"),
+    container: document.getElementById("a1")
+  })
+  // store the flipCards
   const flipcard0 = document.getElementById('fp00');
   const flipCard1 = document.getElementById('fp01');
   const flipcard2 = document.getElementById('fp02');
   const flipcard3 = document.getElementById('fp03');
-
   const cards = [flipcard0, flipCard1, flipcard2, flipcard3];
   const cardEvents = new CardEvents(cards);
 
-
   // add event listeners to cards
-  cardEvents.mouseOver();
-  cardEvents.mouseLeave();
+  cardEvents.mouseClick();
 
   // set shapes to render
   // animtaion01 shapes
-  let square = new CanvasElement({
-    target: canvas2,
-    location: [270, 800],
-    shapeType: SQUARE,
-    container: 'a1',
+  const shape1 = new MovingObject({
+    canvas: canvas1,
+    x: 20,
+    y: canvas1.height / 1.5,
+    radius: 40,
+    width: 40,
+    height: 40,
+    color: canvas1.colors.red,
+    type: 'square',
+    deltaX: 10,
+    deltaY: 1,
   })
+  const animation01 = new Engine({shape: shape1, canvas: canvas1})
   // animation02 shapes
-  let squash = new CanvasElement({
-    target: canvas3,
-    location: [801, 1200],
-    shapeType: SQUASH,
-    container: 'a2',
-  })
   // animation03 shapes
-  let square2 = new CanvasElement({
-    target: canvas4,
-    location: [1201, 1900],
-    shapeType: SQUARE2,
-    container: 'a3',
-  })
   // store shapes in animations array
-  var animations = [];
-  animations.push(square);
-  animations.push(squash);
-  animations.push(square2);
+  var animations = [shape1];
 
   
   
   // render the shapes
   function draw() {
-    window.requestAnimationFrame(draw)
+    window.requestAnimFrame(draw)
     const pageOffset = document.getElementsByClassName("main onepage-wrapper")[0].getBoundingClientRect()["top"]
-    if (square.scrolledToElement(pageOffset) ){
-      square.addClasses();
-      square.render();
-      squash.reset();
-      square2.reset();
-    } else if (squash.scrolledToElement(pageOffset) ){
-      squash.addClasses()
-      squash.render();
-      square.reset();
-      square2.reset();
-    } else if (square2.scrolledToElement(pageOffset) ){
-      squash.addClasses()
-      square2.render();
-      square.reset();
-      squash.reset();
+    if (canvas1.scrolledTo(pageOffset) === true) {
+      canvas1.container.classList.toggle("hovered", true);
+      animation01.render();
     } else {
-      squash.reset();
-      square2.reset();
-      square.reset();
+      canvas1.container.classList.toggle("hovered", false);
     }
   };
-  window.requestAnimationFrame(draw);
+  window.requestAnimFrame(draw);
 });

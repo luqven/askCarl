@@ -1,6 +1,6 @@
 import Token from './token';
-import Util from "./util";
-import movingObject from "./animations/engine";
+import Util from "../../util";
+import movingObject from "../engine";
 
 const shapes = ["square", "circle"];
 const colors = ["#EA4335", "lightblue", "lightgreen", "#FBBC05",
