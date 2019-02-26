@@ -23,17 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const flipcard2 = document.getElementById('fp02');
   const flipcard3 = document.getElementById('fp03');
   const cards = [flipcard0, flipCard1, flipcard2, flipcard3];
-  const cardEvents = new CardEvents(cards);
+  // const cardEvents = new CardEvents(cards);
 
   // add event listeners to cards
-  cardEvents.mouseClick();
+  // cardEvents.mouseClick();
 
   // set shapes to render
   // debugging - background shape
   // animtaion01 shapes
   const shape1 = new MovingObject({
     canvas: canvas1,
-    x: 20,
+    x: 21,
     y: canvas1.height / 1.5,
     radius: 40,
     width: 40,
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     color: canvas1.colors.red,
     opacity: 1.0,
     type: 'square',
-    deltaX: 20,
+    deltaX: 1,
     deltaY: 1,
   })
   const shape2 = new MovingObject({
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     color: canvas1.colors.red,
     opacity: 0.4,
     type: 'square',
-    deltaX: 20,
+    deltaX: 2,
     deltaY: 1,
   })
   const animation01 = new Engine({shape: shape1, canvas: canvas1})
@@ -73,8 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (canvas1.scrolledTo(pageOffset) === true) {
       canvas1.container.classList.toggle("hovered", true);
       canvas1.draw();
-      animation01.render();
-      animation02.render();
+      for (let i = 0; i < animations.length; i++ ) {
+        let currentAnim = animations[i]
+        for (let j = i + 1; j < animations.length; j++) {
+          let nextAnim = animations[j]
+          currentAnim.checkForCollisionWith(nextAnim)
+        }
+        animation01.render()
+        animation02.render()
+      }
     } else {
       canvas1.container.classList.toggle("hovered", false);
     }
