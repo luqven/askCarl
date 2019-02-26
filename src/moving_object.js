@@ -17,6 +17,8 @@ export class MovingObject {
     this.deltaX = props.deltaX
     this.deltaY = props.deltaY
 
+    this.opacity = props.opacity
+
     this.draw    = this.draw.bind(this)
     this.circle  = this.circle.bind(this)
     this.square  = this.square.bind(this)
@@ -68,8 +70,10 @@ export class MovingObject {
   }
 
   square() {
+    this.ctx.globalAlpha = this.opacity
     this.ctx.fillStyle = this.color
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.ctx.globalAlpha = 1.0
     this.ctx.closePath();
     return;
   }
@@ -77,7 +81,6 @@ export class MovingObject {
   draw() {
     if(this.type === "square"){
       this.square();
-      debugger
     } else if (this.type === "circle"){
       this.circle()
     }

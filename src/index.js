@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cardEvents.mouseClick();
 
   // set shapes to render
+  // debugging - background shape
   // animtaion01 shapes
   const shape1 = new MovingObject({
     canvas: canvas1,
@@ -38,15 +39,30 @@ document.addEventListener("DOMContentLoaded", () => {
     width: 40,
     height: 40,
     color: canvas1.colors.red,
+    opacity: 1.0,
     type: 'square',
-    deltaX: 10,
+    deltaX: 20,
+    deltaY: 1,
+  })
+  const shape2 = new MovingObject({
+    canvas: canvas1,
+    x: 20,
+    y: canvas1.height / 3,
+    radius: 40,
+    width: 40,
+    height: 40,
+    color: canvas1.colors.red,
+    opacity: 0.4,
+    type: 'square',
+    deltaX: 20,
     deltaY: 1,
   })
   const animation01 = new Engine({shape: shape1, canvas: canvas1})
+  const animation02 = new Engine({shape: shape2, canvas: canvas1})
   // animation02 shapes
   // animation03 shapes
   // store shapes in animations array
-  var animations = [shape1];
+  var animations = [animation01, animation02];
 
   
   
@@ -56,7 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageOffset = document.getElementsByClassName("main onepage-wrapper")[0].getBoundingClientRect()["top"]
     if (canvas1.scrolledTo(pageOffset) === true) {
       canvas1.container.classList.toggle("hovered", true);
+      canvas1.draw();
       animation01.render();
+      animation02.render();
     } else {
       canvas1.container.classList.toggle("hovered", false);
     }

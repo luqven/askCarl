@@ -12,7 +12,7 @@ export default class Canvas {
       x: this.container.innerWidth / 2,
       y: this.container.innerHeight / 2
     }
-    this.colors = { red: "red", blue: "blue", green: "green", yellow: "yellow" }
+    this.colors = { red: "rgba(255, 0, 0)", blue: "blue", green: "green", yellow: "yellow" }
     this.canvasDidMount = false
 
     this.resize = this.resize.bind(this)
@@ -23,7 +23,6 @@ export default class Canvas {
   // change cursor pos when mouse moves over canvas container
   onMouseMove() {
     this.container.addEventListener('mousemove', e => {
-      debugger
       this.mousePos.x = e.clientX
       this.mousePos.y = e.clientY
     })

@@ -3,7 +3,6 @@ import Util from "../util";
 export default class Engine {
   constructor(props) {
     this.shape     = props.shape;
-    this.allShapes = props.allShapes;
     this.canvas    = props.canvas
     // shape wall locations
     this.topWall   = [0, this.canvas.y];
@@ -11,20 +10,13 @@ export default class Engine {
     this.leftWAll  = [this.canvas.x, 0];
     this.rightWall = [this.canvas.width, 0];
     // initial shape position and dimensions
-    this.x            = this.shape.x;
-    this.y            = this.shape.y;
     this.pos          = [this.shape.x, this.shape.y]
     this.initialPos   = [this.shape.x, this.shape.y].slice(0);     // stored for reference when needed
-    this.radius       = this.shape.radius
-    this.height       = this.shape.height
-    this.width        = this.shape.width
     // start delta, acceleration, friction, and threshold values
-    this.deltaY       = this.shape.deltaY;
-    this.deltaX       = this.shape.deltaX;
-    this.deltaR       = this.deltaY / 900;
+    this.deltaR       = this.shape.deltaY / 900;
     this.acceleration = 10;
     this.friction     = .889;
-    this.velocity     = {x: this.deltaX, y: this.deltaY};
+    this.velocity     = {x: this.shape.deltaX, y: this.shape.deltaY};
     this.thresholdY   = 0.4    // stop animation at this speed
     this.thresholdX   = 0.4    // stop animation at this speed
     this.ended        = false; // true when delta ~= 0;
@@ -44,10 +36,9 @@ export default class Engine {
 // wall collision logic
 ////////////////////////////////////////
   hitWall() {
-    debugger
     if (this.shape.type != "circle") {
       //  get coordinates of the center of the shape
-      this.midPoint = [Math.round(this.pos[0] + this.width / 2), Math.round(this.pos[1] + this.height / 2)];
+      this.midPoint = [Math.round(this.pos[0] + this.shape.width / 2), Math.round(this.pos[1] + this.shape.height / 2)];
     } else {
       this.midPoint = this.pos;
     };
@@ -55,30 +46,29 @@ export default class Engine {
     // let startX = this.pos[0];
     // let startY = this.pos[1];
     // let topLeft  = this.pos;
-    // let topRight = [startX + this.width, startY];
-    // let botLeft  = [startX, startY + this.height];
-    // let botRight = [startX + this.width , startY + this.height]; 
+    // let topRight = [startX + this.shape.width, startY];
+    // let botLeft  = [startX, startY + this.shape.height];
+    // let botRight = [startX + this.shape.width , startY + this.shape.height]; 
     // wallIndexes = [0, 2]  // [top / bottom, left / right]
     let hitWalls = [];
     // if midP +/- radius <=> wall -> wall hit
-    if( this.midPoint[0] - this.radius <= this.leftWAll[0]){
+    if( this.midPoint[0] - this.shape.radius <= this.leftWAll[0]){
       hitWalls.push(2);
       this.reverseDeltaX();
-    } else if (this.midPoint[0] + this.radius >= this.rightWall[0] ) {
+    } else if (this.midPoint[0] + this.shape.radius >= this.rightWall[0] ) {
       hitWalls.push(2);
       this.reverseDeltaX();
     };
-    if (this.midPoint[1] - this.radius <= this.topWall[1]) {
+    if (this.midPoint[1] - this.shape.radius <= this.topWall[1]) {
       hitWalls.push(0);
       this.reverseDeltaY();
-    } else if (this.midPoint[1] + this.radius >= this.botWall[1]) {
+    } else if (this.midPoint[1] + this.shape.radius >= this.botWall[1]) {
       hitWalls.push(0);
       this.reverseDeltaY();
     };
     if (hitWalls.length < 1) {
       this.increaseAccel();
     };
-    debugger
   };
 
       // TODO: object collision detection
@@ -92,27 +82,26 @@ export default class Engine {
 // shape delta change logic
 ////////////////////////////////////////
   growShape() {
-    this.shape.setDims(0, 0, this.radius * this.deltaR)
+    this.shape.setDims(0, 0, this.shape.radius * this.deltaR)
   };
 
   reverseDeltaY(){
     // reverse vertical delta direction
-    this.deltaY =  this.friction * this.deltaY * -1;
+    this.shape.deltaY =  this.friction * this.shape.deltaY * -1;
   };
 
   reverseDeltaX(){
     // reverse vertical delta direction
-    this.deltaX =  this.friction * this.deltaX * -1;
+    this.shape.deltaX =  this.friction * this.shape.deltaX * -1;
   };
 
   increaseAccel() {
-    this.deltaY += 1;
+    this.shape.deltaY += 1;
   };
 
   moveInDyDir() {
-    debugger
     // move shape to position after adding delta
-    this.shape.changePosition([this.deltaX, this.deltaY])
+    this.shape.changePosition([this.shape.deltaX, this.shape.deltaY])
     this.pos = this.shape.getPosition()
   };
 
@@ -120,19 +109,18 @@ export default class Engine {
 // collision and delta change handlers
 ////////////////////////////////////////
   animate() {
-    this.canvas.draw()
     this.shape.render()
 
     // change deltaX when between start pos + 10 and  start pos + 30
     // this simulates slow in and slow out animation behavior
     if (Math.abs(this.pos[0] - this.initialPos[0]) > 10 ||
         Math.abs(this.pos[0] - this.initialPos[0]) < 30) {
-      this.deltaX = this.deltaX * (this.friction / .92)
+      this.shape.deltaX = this.shape.deltaX * (this.friction / .92)
     };
 
     // set end condition to true if deltas have reached thresholds
-    if (Math.abs(this.deltaY ) < this.thresholdY &&
-        Math.abs(this.deltaX) <= this.thresholdX) {
+    if (Math.abs(this.shape.deltaY ) < this.thresholdY &&
+        Math.abs(this.shape.deltaX) <= this.thresholdX) {
         this.over = true
     };
 
