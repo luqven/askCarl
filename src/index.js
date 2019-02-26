@@ -29,33 +29,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // cardEvents.mouseClick();
 
   // set shapes to render
-  // debugging - background shape
   // animtaion01 shapes
   const shape1 = new MovingObject({
     canvas: canvas1,
-    x: 21,
-    y: canvas1.height / 1.5,
+    x: 210,
+    y: canvas1.height -130,
     radius: 40,
     width: 40,
     height: 40,
     color: canvas1.colors.red,
     opacity: 1.0,
     type: 'square',
-    deltaX: 1,
+    deltaX: -10,
     deltaY: 1,
   })
   const shape2 = new MovingObject({
     canvas: canvas1,
-    x: 20,
-    y: canvas1.height / 3,
+    x: 41,
+    y: canvas1.height - 130,
     radius: 40,
     width: 40,
     height: 40,
     color: canvas1.colors.red,
     opacity: 0.4,
     type: 'square',
-    deltaX: 2,
-    deltaY: 1,
+    deltaX: 0,
+    deltaY: 0,
   })
   const animation01 = new Engine({shape: shape1, canvas: canvas1})
   const animation02 = new Engine({shape: shape2, canvas: canvas1})

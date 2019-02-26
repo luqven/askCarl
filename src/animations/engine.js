@@ -8,7 +8,7 @@ export default class Engine {
     // shape wall locations
     this.topWall   = [0, this.canvas.y];
     this.botWall   = [0, this.canvas.height - 65];
-    this.leftWAll  = [this.canvas.x, 0];
+    this.leftWAll  = [this.canvas.x - 20, 0];
     this.rightWall = [this.canvas.width, 0];
     // initial shape position and dimensions
     this.pos          = [this.shape.x, this.shape.y]
@@ -79,9 +79,9 @@ export default class Engine {
   };
 
 
-////////////////////////////////////////
-// Object collision logic
-////////////////////////////////////////
+//////////////////////////////////////////////
+// Object collision logic - called in js index
+//////////////////////////////////////////////
 
   // calculates collision on rotated axis to be able to use 1d newtonian eq.
   rotate(velocity, angle){
@@ -90,7 +90,6 @@ export default class Engine {
       x: velocity.x * Math.cos(angle) - velocity.y * Math.sin(angle),
       y: velocity.x * Math.sin(angle) + velocity.y * Math.cos(angle)
     };
-    debugger
     return rotatedVelocities;
   }
   // changes dX and DY using newtonian eq.
@@ -100,7 +99,6 @@ export default class Engine {
     const yVelocityDiff = self.shape.deltaY - otherObject.shape.deltaY;
     const xDist = otherObject.shape.x - self.shape.x;
     const yDist = otherObject.shape.y - self.shape.y;
-    debugger
     // Account for accidental overlap of shapes
     // this essentially ignores shapes that either
     // would overlap or somehow have managed to overlap
@@ -130,9 +128,7 @@ export default class Engine {
 
       otherObject.shape.deltaX = vFinal2.x;
       otherObject.shape.deltaY = vFinal2.y;
-      debugger
     }
-    debugger
   }
 
   // get the distance between two shapes midpoints
