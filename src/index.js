@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const flipcard2 = document.getElementById('fp02');
   const flipcard3 = document.getElementById('fp03');
   const cards = [flipcard0, flipCard1, flipcard2, flipcard3];
-  // const cardEvents = new CardEvents(cards);
+  const cardEvents = new CardEvents(cards);
 
   // add event listeners to cards
-  // cardEvents.mouseClick();
+  cardEvents.mouseClick();
 
   // set shapes to render
   // animtaion01 shapes
