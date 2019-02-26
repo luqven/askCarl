@@ -70,12 +70,15 @@ export default class Engine {
       this.increaseAccel();
     };
   };
+////////////////////////////////////////
+// Object collision logic
+////////////////////////////////////////
 
-      // TODO: object collision detection
-    // if (this.distanceBetween(this.midPoint, otherMidP) <= 0 ){
-    //   debugger
-    //     hitWalls.push(i);
-    // }
+  // TODO: object collision detection
+    // for all objects passed into functions
+    // if (this.distanceBetween(this.midPoint, otherMidP) <= 0
+      // react to collision
+        // by changing dX and dY accordingly
 
 
 ////////////////////////////////////////
