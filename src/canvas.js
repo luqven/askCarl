@@ -27,12 +27,12 @@ export default class Canvas {
 
   // change cursor pos when mouse moves over canvas container
   onMouseMove() {
-    console.log('watching mouse movements')
+    // console.log('watching mouse movements')
     this.container.addEventListener('mousemove', e => {
       this.mousePos.x = e.offsetX
       this.mousePos.y = e.offsetY /1.2
     })
-    console.log(this.mousePos)
+    // console.log(this.mousePos)
   };
 
   // resize the canvas when it's container resizes

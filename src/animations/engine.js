@@ -86,7 +86,7 @@ export default class Engine {
   }
   // changes dX and DY using newtonian eq.
   handleCollision(self, otherObject){
-    console.log('checking for collisions...')
+    // console.log('checking for collisions...')
     const xVelocityDiff = self.shape.deltaX - otherObject.shape.deltaX;
     const yVelocityDiff = self.shape.deltaY - otherObject.shape.deltaY;
     const xDist = otherObject.shape.x - self.shape.x;
