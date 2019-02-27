@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allCanvases.forEach( canvas => {
       if (canvas.scrolledTo(pageOffset) === true) {
-        debugger
+        // debugger
         canvas.container.classList.toggle("hovered", true);
         canvas.draw();
         for (let i = 0; i < canvas.animations.length; i++) {

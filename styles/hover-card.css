@@ -12,6 +12,10 @@
     /* margin-top: 20px; */
 }
 
+.hover-card-container:hover{
+    cursor: pointer;
+}
+
 /* Hidden psudo element for faster rendering of animation */
 .hover-card-container::after {
     content: '';
