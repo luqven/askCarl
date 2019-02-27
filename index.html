@@ -63,19 +63,18 @@
             <div class="card-face frontface">
               <h2>Click me!</h2>
             </div>
-            <div class="card-face backface">
+            <div class="card-face backface" id="myscroll">
               <code>
-      
-                          <span class="red">for</span> <span class="orange">animations</span> <span class="red">in</span> <span
-                            class="purple">webPage</span> <span class="red">do</span> |<span class="purple">hoverOverCard</span>| <br>
-                        
-                          
-                            <span class="red">if</span> (animationIsInteresting) <span class="orange">{</span> <br>
-                                <span class="comment">"make sure to read relevant code!"</span>
-                              <br> <span class="orange">}</span>
-                            
-                      <span class="red">end</span>
-                    </code>
+                <p class="codepen" data-height="440" data-theme-id="light" data-default-tab="js,result" data-user="luqven-the-scripter"
+                  data-slug-hash="oVXJpj"
+                  style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;"
+                  data-pen-title="oVXJpj">
+                  <span>See the Pen <a href="https://codepen.io/luqven-the-scripter/pen/oVXJpj/">
+                      oVXJpj</a> by Luis H. B. (<a href="https://codepen.io/luqven-the-scripter">@luqven-the-scripter</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              </code>
             </div>
           </div>
         </div>
@@ -112,60 +111,19 @@
                 <canvas width="280" height="330" id="canvas2"></canvas>
               </div>
             </div>
-            <div class="card-face backface">
+            <div class="card-face backface" id="myscroll">
               <code>
-                <pre style="color:#000000;background:#ffffff;">
-                  <span class="comment" ">////////////////////////////////////////</span>
-                  <span style=" color:#3f7f59; ">// wall collision logic</span>
-                  <span class=" comment" ">////////////////////////////////////////</span>
-                  <span class=" function">hitWall()</span><span class="bracket">{</span>
-                  <span class="if">if</span> (<span class="if">this</span><span class="purple">.shape.type</span> != <span
-                    style="color:#2a00ff; ">"</span><span style="color:#2a00ff; ">circle</span><span style="color:#2a00ff; ">"</span>)
-                  <span class="bracket">{</span>
-                  <span style="color:#3f7f59; ">// get coordinates of the center of the shape</span>
-                  <span class="if">this</span>.<span class="purple">midPoint</span> = <span class="bracket">[</span>Math.round(<span
-                    class="if">this</span><span class="purple">.pos</span><span class="bracket">[</span>0<span class="bracket">] </span>+
-                  <span class="if">this</span><span class="purple">.shape.width </span>/ 2), Math.round(<span class="if">this</span><span
-                    class="purple">.pos</span><span class="bracket">[</span>1<span class="bracket">] </span>+ <span
-                    class="if">this</span><span class="purple">.shape.height</span> / 2)];
-                  <span class="bracket">}</span> <span class="if">else</span> <span class="bracket">{</span>
-                  <span class="if">this</span>.<span class="purple">midPoint</span> = <span class="if">this</span><span
-                    class="purple">.pos</span>;
-                  <span class="bracket">}</span>;
-                  let <span class="purple">hitWalls</span> = <span class="bracket">[</span> <span class="bracket">]</span>;
-                  <span style="color:#3f7f59; ">// if midP +/- radius &lt;=&gt; wall -&gt; wall hit</span>
-                  <span class="if">if</span>( <span class="if">this</span>.<span class="purple">midPoint</span><span
-                    class="bracket">[</span>0<span class="bracket">] </span>- <span class="if">this</span><span
-                    class="purple">.shape.radius</span> &lt;= <span class="if">this</span><span class="purple">.leftWAll</span><span
-                    class="bracket">[</span>0])<span class="bracket">{</span>
-                  <span class="purple">hitWalls</span>.push(2);
-                  <span class="if">this</span>.<span class="function">reverseDeltaX();</span>
-                  <span class="bracket">}</span> <span class="if">else</span> <span class="if">if</span> (<span
-                    class="if">this</span>.<span class="purple">midPoint</span><span class="bracket">[</span>0<span class="bracket">]
-                  </span>+ <span class="if">this</span><span class="purple">.shape.radius</span> &gt;= <span class="if">this</span>.<span
-                    class="purple">rightWall</span><span class="bracket">[</span>0<span class="bracket">] </span>) <span
-                    class="bracket">{</span>
-                  <span class="purple"> hitWalls</span>.push(2);
-                  <span class="if">this</span>.<span class="function">reverseDeltaX();</span>
-                  <span class="bracket">}</span>;
-                  <span class="if">if</span> (<span class="if">this</span>.<span class="purple">midPoint</span><span
-                    class="bracket">[</span>1<span class="bracket">] </span>- <span class="if">this</span><span
-                    class="purple">.shape.radius</span> &lt;= <span class="if">this</span>.topWall<span class="bracket">[</span>1]) <span
-                    class="bracket">{</span>
-                  <span class="purple"> hitWalls</span>.push(0);
-                  <span class="if">this</span>.<span class="function">reverseDeltaY();</span>
-                  <span class="bracket">}</span> <span class="if">else</span> <span class="if">if</span> (<span
-                    class="if">this</span>.<span class="purple">midPoint</span><span class="bracket">[</span>1<span class="bracket">]
-                  </span>+ <span class="if">this</span>.shape.radius &gt;= <span class="if">this</span>.botWall<span
-                    class="bracket">[</span>1]) <span class="bracket">{</span>
-                  <span class="purple">hitWalls</span>.push(0);
-                  <span class="if">this</span>.<span class="function">reverseDeltaY();</span>
-                  <span class="bracket">}</span>;
-                  <span class="if">if</span> (hitWalls.length &lt; 1) <span class="bracket">{</span>
-                  <span class="if">this</span>.<span class="function">increaseAccel();</span>
-                  <span class="bracket">}</span>;
-                  <span class="bracket">}</span>;
-                  </pre>
+                <!-- <pre style="color:#000000;background:#ffffff;"> -->
+                  <p class="codepen" data-height="440" data-theme-id="light" data-default-tab="js" data-user="luqven-the-scripter"
+                    data-slug-hash="zbGMJL"
+                    style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;"
+                    data-pen-title="zbGMJL">
+                    <span>See the Pen <a href="https://codepen.io/luqven-the-scripter/pen/zbGMJL/">
+                        zbGMJL</a> by Luis H. B. (<a href="https://codepen.io/luqven-the-scripter">@luqven-the-scripter</a>)
+                      on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                <!-- </pre> -->
               </code>
             </div>
           </div>
@@ -200,46 +158,18 @@
                 <canvas width="280" height="330" id="canvas3"></canvas>
               </div>
             </div>
-            <div class="card-face backface">
+            <div class="card-face backface" id="myscroll">
               <code>
-                           <span class="comment">
-                              //////////////////////////////////////// <br>
-                              // wall collision logic <br>
-                              //////////////////////////////////////// <br>
-                           </span>
-                            hitWall() <span class="bracket">{</span> <br>
-                            <span class="let">let</span> <span class="variableName">startX</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 0<span class="bracket"> ]</span>; <br>
-                            <span class="let">let</span> <span class="variableName">startY</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 1<span class="bracket"> ]</span>; <br>
-                             <br>
-                            <span class="let">let</span> <span class="variableName">topLeft</span> = <span class="this">this</span>.pos; <br>
-                            <span class="let">let</span> <span class="variableName">topRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width, <span class="variableName">startY</span><span class="bracket"> ]</span>; <br>
-                            <span class="let">let</span> <span class="variableName">botLeft</span> =  <span class="bracket">[</span> <span class="variableName">startX</span>, <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                            <span class="let">let</span> <span class="variableName">botRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width , <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                            <span class="comment">// wallIndexes = <span class="bracket">[</span>1, 3<span class="bracket">]</span> // <span class="bracket">[</span> top
-                            / bottm, left / right<span class="bracket">]</span> <br></span>
-                            <span class="let">let</span> <span class="variableName">hitWalls</span> =  <span class="bracket">[</span> <span class="bracket"> ]</span>; <br>
-                            // check all four corners against each wall <br>
-                             <br>
-                            <span class="if">if</span> (<span class="this">this.</span> hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span>
-                            <span class="variableName">hitWalls</span>.push(1);
-                            <span class="bracket">}</span>; <br>
-                            <span class="if">if</span> (<span class="this">this.</span> hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span> 
-                            <span class="variableName">hitWalls</span>.push(3);
-                            <span class="bracket">}</span>;
-                            return <span class="variableName">hitWalls</span>;
-                            <span class="bracket">}</span> <br>
-                             <br>
-                            hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                              <span class="comment">...</span>
-                              return true;
-                              <span class="bracket">}</span>;
-                              <span class="bracket">}</span>;
-                             <br>
-                              hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                               <span class="comment">...</span>
-                                <span class="bracket">{</span> return true; <span class="bracket">}</span>;
-                              <span class="bracket">}</span>;
-                    </code>
+                <p class="codepen" data-height="440" data-theme-id="light" data-default-tab="js,result" data-user="luqven-the-scripter"
+                  data-slug-hash="QobzNa"
+                  style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;"
+                  data-pen-title="QobzNa">
+                  <span>See the Pen <a href="https://codepen.io/luqven-the-scripter/pen/QobzNa/">
+                      QobzNa</a> by Luis H. B. (<a href="https://codepen.io/luqven-the-scripter">@luqven-the-scripter</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              </code>
             </div>
           </div>
         </div>
@@ -272,46 +202,19 @@
                 <canvas width="280" height="330" id="canvas4"></canvas>
               </div>
             </div>
-            <div class="card-face backface">
+            <div class="card-face backface" id="myscroll">
               <code>
-                               <span class="comment">
-                                  //////////////////////////////////////// <br>
-                                  // wall collision logic <br>
-                                  //////////////////////////////////////// <br>
-                               </span>
-                                hitWall() <span class="bracket">{</span> <br>
-                                <span class="let">let</span> <span class="variableName">startX</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 0<span class="bracket"> ]</span>; <br>
-                                <span class="let">let</span> <span class="variableName">startY</span> = <span class="this">this</span>.pos <span class="bracket">[</span> 1<span class="bracket"> ]</span>; <br>
-                                 <br>
-                                <span class="let">let</span> <span class="variableName">topLeft</span> = <span class="this">this</span>.pos; <br>
-                                <span class="let">let</span> <span class="variableName">topRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width, <span class="variableName">startY</span><span class="bracket"> ]</span>; <br>
-                                <span class="let">let</span> <span class="variableName">botLeft</span> =  <span class="bracket">[</span> <span class="variableName">startX</span>, <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                                <span class="let">let</span> <span class="variableName">botRight</span> =  <span class="bracket">[</span> <span class="variableName">startX</span> + <span class="this">this</span>.width , <span class="variableName">startY</span> + <span class="this">this</span>.height<span class="bracket"> ]</span>; <br>
-                                <span class="comment">// wallIndexes = <span class="bracket">[</span>1, 3<span class="bracket">]</span> // <span class="bracket">[</span> top
-                                / bottm, left / right<span class="bracket">]</span> <br></span>
-                                <span class="let">let</span> <span class="variableName">hitWalls</span> =  <span class="bracket">[</span> <span class="bracket"> ]</span>; <br>
-                                // check all four corners against each wall <br>
-                                 <br>
-                                <span class="if">if</span> (<span class="this">this.</span> hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span>
-                                <span class="variableName">hitWalls</span>.push(1);
-                                <span class="bracket">}</span>; <br>
-                                <span class="if">if</span> (<span class="this">this.</span> hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>)) <span class="bracket">{</span> 
-                                <span class="variableName">hitWalls</span>.push(3);
-                                <span class="bracket">}</span>;
-                                return <span class="variableName">hitWalls</span>;
-                                <span class="bracket">}</span> <br>
-                                 <br>
-                                hitHorizWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                                  <span class="comment">...</span>
-                                  return true;
-                                  <span class="bracket">}</span>;
-                                  <span class="bracket">}</span>;
-                                 <br>
-                                  hitVertWall(<span class="variableName">topLeft</span>, <span class="variableName">topRight</span>, <span class="variableName">botLeft</span>, <span class="variableName">botRight</span>) <span class="bracket">{</span>
-                                   <span class="comment">...</span>
-                                    <span class="bracket">{</span> return true; <span class="bracket">}</span>;
-                                  <span class="bracket">}</span>;
-                        </code>
+                <p class="codepen" data-height="445" data-theme-id="light" data-default-tab="js,result" data-user="luqven-the-scripter"
+                  data-slug-hash="NJqejX"
+                  style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;"
+                  data-pen-title="Object Collision Logic">
+                  <span>See the Pen <a href="https://codepen.io/luqven-the-scripter/pen/NJqejX/">
+                      Object Collision Logic</a> by Luis H. B. (<a
+                      href="https://codepen.io/luqven-the-scripter">@luqven-the-scripter</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              </code>
             </div>
           </div>
         </div>
@@ -321,7 +224,7 @@
     <script>
       onePageScroll(".main", {
         sectionContainer: "section",
-        loop: true,
+        loop: false,
         responsiveFallback: false,
         pagination: true,
         updateURL: true,

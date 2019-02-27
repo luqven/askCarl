@@ -27,7 +27,7 @@ html * {
 .comment, .comment span{
   color: rgb(79, 94, 79) !important;
 }
-
+/* 
 code > pre {
   margin: -90px 0 2em -53px;
-}
+} */
