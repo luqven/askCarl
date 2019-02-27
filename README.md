@@ -15,6 +15,7 @@ askCarl stores your files in your browser, which means all your files are automa
 
 
 # Libraries & technologies
+![flipcard giph](https://media.giphy.com/media/3joSYfOKiWOlnTftbB/giphy.gif)
 
 **askCarl** makes use of:
 - Vanilla Javascript for animation's logic
@@ -22,7 +23,7 @@ askCarl stores your files in your browser, which means all your files are automa
 - NodeJS for dabaasse management
 
 **Main Files**
-![flipcard giph](https://media.giphy.com/media/3joSYfOKiWOlnTftbB/giphy.gif)
+
 - ``home.js`` main structure of the canvas and webpage
 - ``flipcards.js`` DOM events wrapper for canvas container cards
 - ``canvas.js`` a custom HTMl Canvas class that handles a lot of rendering logic
