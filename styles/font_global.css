@@ -9,7 +9,7 @@ html * {
 }
 
 .function {
-  color: orange;
+  color: #4285F4;
 }
 
 .this ,.red {
@@ -20,10 +20,14 @@ html * {
   color: blueviolet;
 }
 
-.let, .if {
-  color: crimson;
+.let, .if, .else {
+  color: red;
 }
 
 .comment, .comment span{
   color: rgb(79, 94, 79) !important;
+}
+
+code > pre {
+  margin: -90px 0 2em -53px;
 }

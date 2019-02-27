@@ -49,14 +49,6 @@ export default class Engine {
     } else {
       this.midPoint = this.pos;
     };
-    // get the coordinates of shapes 4 corners
-    // let startX = this.pos[0];
-    // let startY = this.pos[1];
-    // let topLeft  = this.pos;
-    // let topRight = [startX + this.shape.width, startY];
-    // let botLeft  = [startX, startY + this.shape.height];
-    // let botRight = [startX + this.shape.width , startY + this.shape.height]; 
-    // wallIndexes = [0, 2]  // [top / bottom, left / right]
     let hitWalls = [];
     // if midP +/- radius <=> wall -> wall hit
     if( this.midPoint[0] - this.shape.radius <= this.leftWAll[0]){
