@@ -22,10 +22,9 @@ askCarl stores your files in your browser, which means all your files are automa
 - NodeJS for dabaasse management
 
 **Main Files**
-
+![flipcard giph](https://media.giphy.com/media/3joSYfOKiWOlnTftbB/giphy.gif)
 - ``home.js`` main structure of the canvas and webpage
 - ``flipcards.js`` DOM events wrapper for canvas container cards
-![flipcard giph](https://media.giphy.com/media/3joSYfOKiWOlnTftbB/giphy.gif)
 - ``canvas.js`` a custom HTMl Canvas class that handles a lot of rendering logic
 - ``moving_object.js`` object that animations interact with (e.g. a square canvas element with speed, acc, size, etc., attributes)
 - ``engine.js`` stores all the animation logic and applies it to moving_objects
