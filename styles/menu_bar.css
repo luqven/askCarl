@@ -5,11 +5,11 @@
     flex-direction: row;
     justify-content: space-around;
     margin: auto;
-    padding-top: 5px;
+    padding-top: 15px;
     padding-bottom: 20px;
     border-bottom: 1px solid white;
     box-sizing: border-box;
-    box-shadow: 1px 4px 20px 0px lightgrey;
+    box-shadow: 1px 4px 20px 0px rgba(211, 211, 211, 0.358);
 }
 
 .menu-bar-container p, li, h1 {
@@ -33,19 +33,12 @@
 }
 
 .menu-bar-shadow {
-    /* top: 60px;
-    position: absolute;
-    background-color: white;
-    border: 1px solid white;
-    box-sizing: border-box;
-    box-shadow: -1px 7px 17px 1px rgb(224, 224, 224);
-    width: 100%; */
     top: 60px;
     position: absolute;
-    background-color: white;
-    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.509);
+    border: 1px solid rgba(255, 255, 255, 0.509);
     box-sizing: border-box;
-    box-shadow: 0px -4px 8px 5px white;
+    box-shadow: 0px 6px 8px 5px rgba(255, 255, 255, 0.543);
     width: 100%;
 }
 
@@ -53,4 +46,46 @@
     display: flex;
     flex-direction: column;
     margin: auto;
+}
+/* ww3Schools dropdown CSS class */
+/* Dropdown button */
+.dropdown {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
