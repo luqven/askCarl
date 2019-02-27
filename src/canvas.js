@@ -14,6 +14,9 @@ export default class Canvas {
     }
     this.colors = { red: "rgba(255, 0, 0)", blue: "blue", green: "green", yellow: "yellow" }
     this.shapes = props.shapes // shapes objs that belong to this canvas
+    this.minPageOff = props.minPageOff  // the min PageOffset value
+    this.maxPageOff = props.maxPageOff  // the max PageOffset value
+    this.animations = props.animations // animation objs that belong to this canvas
     this.canvasDidMount = false // bool turns true on first render
 
     this.draw   = this.draw.bind(this);
@@ -42,7 +45,8 @@ export default class Canvas {
 
   // returns bool that determines if scrolled to current canvas
   scrolledTo(pageOffset){
-    if (pageOffset < -300 && pageOffset > -600) {return true}
+    // if (pageOffset < -300 && pageOffset > -600) {return true}
+    if (pageOffset < this.maxPageOff && pageOffset > this.minPageOff) {return true}
   }
 
   // on first render, add event listeners

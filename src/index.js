@@ -12,11 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
   window.requestAnimFrame = Util.requestAnimFrame;
 
-  // store the canvases
+  // set the canvases
   const canvas1 = new Canvas({
     canvas: document.getElementById("canvas2"),
-    container: document.getElementById("a1")
+    container: document.getElementById("a1"),
+    minPageOff: -600,
+    maxPageOff: -300,
   })
+  const canvas2 = new Canvas({
+    canvas: document.getElementById("canvas3"),
+    container: document.getElementById("a2"),
+    minPageOff: -990,
+    maxPageOff: -600,
+  })
+  const canvas3 = new Canvas({
+    canvas: document.getElementById("canvas4"),
+    container: document.getElementById("a3"),
+    minPageOff: -1490,
+    maxPageOff: -990,
+  })
+
   // store the flipCards
   const flipcard0 = document.getElementById('fp00');
   const flipCard1 = document.getElementById('fp01');
@@ -28,12 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // add event listeners to cards
   cardEvents.mouseClick();
 
-  // set shapes to render
-  // animtaion01 shapes
+  // canvas1 shapes and animations
   const shape1 = new MovingObject({
     canvas: canvas1,
     x: 210,
-    y: canvas1.height -131,
+    y: canvas1.height -125,
     radius: 40,
     width: 40,
     height: 40,
@@ -43,48 +57,88 @@ document.addEventListener("DOMContentLoaded", () => {
     deltaX: -10,
     deltaY: 1,
   })
-  const shape2 = new MovingObject({
-    canvas: canvas1,
-    x: 41,
-    y: canvas1.height - 130,
+  const animation01 = new Engine({shape: shape1, canvas: canvas1})
+
+  // canvas2 shapes and animations
+  const shape3 = new MovingObject({
+    canvas: canvas2,
+    x: 10,
+    y: canvas2.height - 131,
     radius: 40,
     width: 40,
     height: 40,
-    color: canvas1.colors.red,
-    opacity: 0.4,
+    color: canvas2.colors.yellow,
+    opacity: 1.0,
     type: 'square',
-    deltaX: 0,
-    deltaY: 0,
+    deltaX:  -7,
+    deltaY: -19.1,
   })
-  const animation01 = new Engine({shape: shape1, canvas: canvas1})
-  const animation02 = new Engine({shape: shape2, canvas: canvas1})
-  // animation02 shapes
-  // animation03 shapes
-  // store shapes in animations array
-  var animations = [animation01, animation02];
-  canvas1.shapes = [shape1, shape2]
-  
-  
+  const animation02 = new Engine({ shape: shape3, canvas: canvas2 })
+
+  // canvas3 shapes and animations
+  const shape4 = new MovingObject({
+    canvas: canvas3,
+    x: 10,
+    y: canvas3.height - 132,
+    radius: 40,
+    width: 40,
+    height: 40,
+    color: canvas2.colors.green,
+    opacity: 1.0,
+    type: 'square',
+    deltaX: 1,
+    deltaY: 1,
+  })
+  const shape5 = new MovingObject({
+    canvas: canvas3,
+    x: 10,
+    y: 100,
+    radius: 40,
+    width: 40,
+    height: 40,
+    color: canvas2.colors.green,
+    opacity: 1.0,
+    type: 'square',
+    deltaX: 1,
+    deltaY: 1,
+  })
+
+  const animation03 = new Engine({ shape: shape4, canvas: canvas3 })
+  const animation04 = new Engine({ shape: shape5, canvas: canvas3 })
+
+  // store shapes and animations arrays in each canvas
+  canvas1.shapes = [shape1]
+  canvas1.animations = [animation01]
+  canvas2.shapes = [shape3]
+  canvas2.animations = [animation02]
+  canvas3.shapes = [shape4, shape5]
+  canvas3.animations = [animation03, animation04]
+
+  const allCanvases = [canvas1, canvas2, canvas3]
+
   // render the shapes
   function draw() {
     window.requestAnimFrame(draw)
     const pageOffset = document.getElementsByClassName("main onepage-wrapper")[0].getBoundingClientRect()["top"]
-    if (canvas1.scrolledTo(pageOffset) === true) {
-      canvas1.container.classList.toggle("hovered", true);
-      canvas1.draw();
-      for (let i = 0; i < animations.length; i++ ) {
-        let currentAnim = animations[i]
-        for (let j = i + 1; j < animations.length; j++) {
-          let nextAnim = animations[j]
-          currentAnim.checkForCollisionWith(nextAnim)
+
+    allCanvases.forEach( canvas => {
+      if (canvas.scrolledTo(pageOffset) === true) {
+        debugger
+        canvas.container.classList.toggle("hovered", true);
+        canvas.draw();
+        for (let i = 0; i < canvas.animations.length; i++) {
+          let currentAnim = canvas.animations[i]
+          for (let j = i + 1; j < canvas.animations.length; j++) {
+            let nextAnim = canvas.animations[j]
+            currentAnim.checkForCollisionWith(nextAnim)
+          }
+          currentAnim.render()
         }
-        animation01.render()
-        animation02.render()
+      } else {
+        canvas.container.classList.toggle("hovered", false);
+        canvas.resetObjects();
       }
-    } else {
-      canvas1.container.classList.toggle("hovered", false);
-      canvas1.resetObjects();
-    }
+    })
   };
   window.requestAnimFrame(draw);
 });
