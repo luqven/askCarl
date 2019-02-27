@@ -29,7 +29,8 @@ askCarl stores your files in your browser, which means all your files are automa
 - ``canvas.js`` a custom HTMl Canvas class that handles a lot of rendering logic
 - ``moving_object.js`` object that animations interact with (e.g. a square canvas element with speed, acc, size, etc., attributes)
 - ``engine.js`` stores all the animation logic and applies it to moving_objects
-- ``collision_math.js`` stores all the physiscs logic with additional comments and source documentaiton
+- ``collision_math.js`` stores all the physiscs logic with additional comments and source documentaiton, relied heavily on [christopher4lis](gist.github.com/christopher4lis) work on the subject to figure out the math.
+- ``onepagescroll.js`` Pete Rojwongsuriya's [helper](https://github.com/peachananr/purejs-onepage-scroll) for scroll locking. Had to be reworked some to account for desired custom scroll position behavior.
 
 # MVP Features
 
