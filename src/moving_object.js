@@ -4,6 +4,8 @@
 export class MovingObject {
   constructor(props) {
 
+    this.prevProps = Object.assign({}, props)
+
     this.x = props.x
     this.y = props.y
 
@@ -16,7 +18,6 @@ export class MovingObject {
     this.type   = props.type
     this.deltaX = props.deltaX
     this.deltaY = props.deltaY
-
     this.opacity = props.opacity
 
     this.draw    = this.draw.bind(this)
@@ -29,6 +30,19 @@ export class MovingObject {
     this.getPosition = this.getPosition.bind(this)
     this.changeSpeed = this.changeSpeed.bind(this)
     this.changePosition = this.changePosition.bind(this)
+  }
+
+  reset() {
+    this.radius   = this.prevProps.radius
+    this.width    = this.prevProps.width
+    this.height   = this.prevProps.height
+    this.color    = this.prevProps.color
+    this.canvas   = this.prevProps.canvas
+    this.ctx      = this.prevProps.canvas.ctx
+    this.type     = this.prevProps.type
+    this.deltaX   = this.prevProps.deltaX
+    this.deltaY   = this.prevProps.deltaY
+    this.opacity  = this.prevProps.opacity
   }
 
   getPosition(){

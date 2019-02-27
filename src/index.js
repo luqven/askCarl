@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const shape1 = new MovingObject({
     canvas: canvas1,
     x: 210,
-    y: canvas1.height -130,
+    y: canvas1.height -131,
     radius: 40,
     width: 40,
     height: 40,
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // animation03 shapes
   // store shapes in animations array
   var animations = [animation01, animation02];
-
+  canvas1.shapes = [shape1, shape2]
   
   
   // render the shapes
@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else {
       canvas1.container.classList.toggle("hovered", false);
+      canvas1.resetObjects();
     }
   };
   window.requestAnimFrame(draw);
