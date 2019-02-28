@@ -5,9 +5,9 @@
     flex-direction: row;
     justify-content: space-around;
     margin: auto;
-    padding-top: 15px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid white;
+    /* padding-top: 15px; */
+    /* padding-bottom: 20px; */
+    /* border-bottom: 1px solid white; */
     box-sizing: border-box;
     box-shadow: 1px 4px 20px 0px rgba(211, 211, 211, 0.358);
 }
@@ -33,7 +33,7 @@
 }
 
 .menu-bar-shadow {
-    top: 60px;
+    top: 45px;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.509);
     border: 1px solid rgba(255, 255, 255, 0.509);
