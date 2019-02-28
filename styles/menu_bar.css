@@ -16,7 +16,7 @@
     color: black !important;
 }
 
-.menu-bar-container i {
+.menu-bar-container i, a {
     color: #34A853 !important;
 }
 
@@ -28,8 +28,13 @@
 
 .menu-bar-nav {
     display: flex;
-    flex-direction: column;
+    list-style: none;
+    flex-direction: row;
     margin: auto;
+}
+
+.menu-bar-nav li {
+  padding-left: 40px;
 }
 
 .menu-bar-shadow {
