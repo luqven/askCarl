@@ -48,7 +48,7 @@ export default class Canvas {
     // if (pageOffset < -300 && pageOffset > -600) {return true}
     if (start / pageOffset === this.canvOffset) {return true}
     debugger
-    if (Math.round(start / pageOffset) === -1 && this.canvOffset === 0) {return true}
+    if (start / pageOffset > -1 && this.canvOffset === 0) {return true}
   }
 
   // on first render, add event listeners
