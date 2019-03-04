@@ -1,0 +1,6 @@
+@media (min-width: 301px) and (max-width: 717px) {
+  .onepage-wrapper .ops-section {
+  width: 100%;
+  height: 100%;
+  }
+}

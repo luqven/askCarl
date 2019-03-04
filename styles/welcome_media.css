@@ -1,0 +1,22 @@
+@media (min-width: 301px) and (max-width: 717px) {
+  .welcome-banner-container {
+    flex-direction: column;
+    padding-top: 0px;
+    height: 300px;
+  }
+  .welcome-b-text h2, .welcome-b-text{
+    font-size: small;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+
+  .flipcard{
+    margin-top: 110px;
+  }
+  .mouse{
+    margin-left: 0px !important;
+  }
+  .welcome-b-text p:last-of-type {
+    display: none;
+  }
+}

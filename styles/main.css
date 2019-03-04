@@ -10,6 +10,9 @@
 @import url('./hover-card.css');
 /* helpers */
 @import url("../src/onepage_scroll_helper/onepage-scroll.css");
+/* media queries */
+@import url("../styles/welcome_media.css");
+@import url("../src/onepage_scroll_helper/onepage-media.css");
 
 
 /* FIXME: move this to their own file */

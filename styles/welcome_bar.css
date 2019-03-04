@@ -8,6 +8,7 @@
 
 .welcome-banner-container p, li, h1, h2, i {
     color: #ffffff;
+    max-width: 400px;
 }
 
 .welcome-b-text {

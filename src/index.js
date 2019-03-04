@@ -11,25 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('webpack is running...')
   console.log("DOM fully loaded and parsed");
   window.requestAnimFrame = Util.requestAnimFrame;
-
   // set the canvases
   const canvas1 = new Canvas({
     canvas: document.getElementById("canvas2"),
     container: document.getElementById("a1"),
-    minPageOff: -600,
-    maxPageOff: -300,
+    canvOffset: -2,
   })
   const canvas2 = new Canvas({
     canvas: document.getElementById("canvas3"),
     container: document.getElementById("a2"),
-    minPageOff: -990,
-    maxPageOff: -600,
+    canvOffset: -1,
   })
   const canvas3 = new Canvas({
     canvas: document.getElementById("canvas4"),
     container: document.getElementById("a3"),
-    minPageOff: -1490,
-    maxPageOff: -990,
+    canvOffset: 0,
   })
 
   // store the flipCards
@@ -120,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function draw() {
     window.requestAnimFrame(draw)
     const pageOffset = document.getElementsByClassName("main onepage-wrapper")[0].getBoundingClientRect()["top"]
-
     allCanvases.forEach( canvas => {
       if (canvas.scrolledTo(pageOffset) === true) {
         // debugger
