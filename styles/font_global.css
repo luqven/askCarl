@@ -68,3 +68,12 @@ button:focus {
 button:active {
     transform: scale(0.99);
 }
+
+.card-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 80px;
+    text-align: center;
+}

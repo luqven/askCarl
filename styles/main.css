@@ -12,6 +12,8 @@
 @import url("../src/onepage_scroll_helper/onepage-scroll.css");
 /* media queries */
 @import url("../styles/welcome_media.css");
+@import url("../styles/text-media.css");
+@import url("../styles/card-media.css");
 @import url("../src/onepage_scroll_helper/onepage-media.css");
 
 

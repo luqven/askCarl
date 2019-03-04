@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // canvas1 shapes and animations
   const shape1 = new MovingObject({
     canvas: canvas1,
-    x: 210,
+    x: 10,
     y: canvas1.height -125,
     radius: 40,
     width: 40,
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     color: canvas1.colors.red,
     opacity: 1.0,
     type: 'square',
-    deltaX: -10,
+    deltaX: 10,
     deltaY: 1,
   })
   const animation01 = new Engine({shape: shape1, canvas: canvas1})

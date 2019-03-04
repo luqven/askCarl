@@ -36,6 +36,9 @@
 .menu-bar-nav li {
   padding-left: 40px;
 }
+.menu-bar-nav li a i:hover, .menu-bar-nav li a:hover {
+  color: #4285F4 !important;
+}
 
 .menu-bar-shadow {
     top: 45px;

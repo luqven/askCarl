@@ -1,0 +1,19 @@
+@media (min-width: 685px) and (max-width: 820px) {
+  .card{
+    width: 70%;
+  }
+  .welcome-banner-container .card{
+    width: 100%;
+  }
+}
+
+@media (min-width: 301px) and (max-width: 685px) {
+  .flipcard, .card, .hover-card-container, .hover-card-container.hovered, .hover-card-container::after {
+    width: 210px;
+    height: 418px;
+  }
+  canvas {
+    width: 310px;
+    height: 418px;
+  }
+}
