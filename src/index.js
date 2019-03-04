@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // canvas3 shapes and animations
   const shape4 = new MovingObject({
     canvas: canvas3,
-    x: 10,
+    x: 5,
     y: canvas3.height - 132,
     radius: 40,
     width: 40,
@@ -82,33 +82,47 @@ document.addEventListener("DOMContentLoaded", () => {
     color: canvas2.colors.green,
     opacity: 1.0,
     type: 'square',
-    deltaX: 10,
-    deltaY: 1,
+    deltaX: 6,
+    deltaY: -20,
   })
   const shape5 = new MovingObject({
     canvas: canvas3,
     x: 223,
-    y: 101.11,
+    y: canvas3.height - 132,
     radius: 40,
     width: 40,
     height: 40,
     color: canvas2.colors.green,
     opacity: 1.0,
     type: 'square',
-    deltaX: -2,
-    deltaY: 2,
+    deltaX: -3,
+    deltaY: -18,
+  })
+  const shape6 = new MovingObject({
+    canvas: canvas3,
+    x: 110,
+    y: canvas3.height - 182,
+    radius: 40,
+    width: 40,
+    height: 40,
+    color: canvas2.colors.green,
+    opacity: 1.0,
+    type: 'square',
+    deltaX: -5,
+    deltaY: -1,
   })
 
   const animation03 = new Engine({ shape: shape4, canvas: canvas3 })
   const animation04 = new Engine({ shape: shape5, canvas: canvas3 })
+  const animation05 = new Engine({ shape: shape6, canvas: canvas3 })
 
   // store shapes and animations arrays in each canvas
   canvas1.shapes = [shape1]
   canvas1.animations = [animation01]
   canvas2.shapes = [shape3]
   canvas2.animations = [animation02]
-  canvas3.shapes = [shape4, shape5]
-  canvas3.animations = [animation03, animation04]
+  canvas3.shapes = [shape4, shape5, shape6]
+  canvas3.animations = [animation03, animation04, animation05]
 
   const allCanvases = [canvas1, canvas2, canvas3]
 
