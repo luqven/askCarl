@@ -82,21 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
     color: canvas2.colors.green,
     opacity: 1.0,
     type: 'square',
-    deltaX: 1,
+    deltaX: 10,
     deltaY: 1,
   })
   const shape5 = new MovingObject({
     canvas: canvas3,
-    x: 10,
-    y: 100,
+    x: 223,
+    y: 101.11,
     radius: 40,
     width: 40,
     height: 40,
     color: canvas2.colors.green,
     opacity: 1.0,
     type: 'square',
-    deltaX: 1,
-    deltaY: 1,
+    deltaX: -2,
+    deltaY: 2,
   })
 
   const animation03 = new Engine({ shape: shape4, canvas: canvas3 })
