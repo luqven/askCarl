@@ -66,3 +66,9 @@
     height: 418px;
     perspective: 600px;
 }
+
+/* codePen embed style editing */
+
+#embed-nav{
+    display: none;
+} 
