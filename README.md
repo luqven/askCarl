@@ -1,7 +1,7 @@
-# Welcome to askCarl
+# Welcome to [askCarl](http://luisball.com/askCarl/)
 ![home giph](https://media.giphy.com/media/43LhiFpDqLSXN2zE3a/giphy.gif)
 
-**askCarl** is a Javascript app that displays complex Javascrpipt & CSS concepts as simple animations. The goal is to display how the two languages can be used to achieve some of the most tried and true animation techniques on one's webpage.
+[**askCarl**](http://luisball.com/askCarl/) is a Javascript app that displays complex Javascrpipt & CSS concepts as simple animations. The goal is to display how the two languages can be used to achieve some of the most tried and true animation techniques on one's webpage.
 
 Although traditionally animation techniques were meant for film animators, these tested strategies translate well to uesr's expectations of webpage componenet behavior. Scroll bouncing, gesture navigation, scroll-to-zoom being some prime examples.
 
